@@ -1,0 +1,10 @@
+/*
+ * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+
+fetchLatest {
+  typePath = "tools"
+  latestURL = 'http://files.cascading.org/multitool/2.0/latest.txt'
+}

@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+
+import java.text.SimpleDateFormat
+
+if( project.properties[ 'teamcity' ] ) // make them system properties
+  System.properties.putAll( project.properties[ 'teamcity' ] )
+
+if( System.properties[ 'aws.properties' ] )
+{
+  file( System.properties[ 'aws.properties' ] ).withReader { reader ->
+    def awsProperties = new Properties()
+    awsProperties.load( reader )
+    System.properties.putAll( awsProperties )
+  }
+}
+
+ext.majorVersion = 2.0
+ext.applicationGroup = "sdk"
+ext.applicationName = "Cascading-${majorVersion}-SDK"
+ext.timestamp = new SimpleDateFormat( "yyyyMMdd" ).format( new Date() )
+ext.archiveBaseName = "${applicationName}-${timestamp}"
+ext.distDir = "${buildDir}/dist/${archiveBaseName}"
+ext.distributionDir = "${buildDir}/distribution"
+
+configurations {
+  s3AntTask
+}
+
+dependencies {
+  s3AntTask 'thirdparty:awstasks:0.3'
+}
+
+allprojects {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    mavenRepo name: 'conjars', url: 'http://conjars.org/repo/'
+  }
+}
+
+task packageDist( type: Tar ) {
+  description = 'Creates the sdk archive.'
+
+  baseName = applicationName
+  version = timestamp
+  compression = "GZIP"
+  destinationDir = file( distributionDir )
+  from distDir
+}
+
+allprojects {
+  task clean( type: Delete ) {
+    delete buildDir
+  }
+}
+
+subprojects {
+
+  ext.distDir = "${buildDir}/dist"
+
+  task fetchLatest {
+    ext.latestURL = null;
+    ext.typePath = '';
+
+    outputs.dir distDir
+  }
+
+  fetchLatest.onlyIf { fetchLatest.latestURL != null }
+
+  fetchLatest << {
+
+    mkdir buildDir
+    mkdir distDir
+
+    def latestFile = new File( buildDir, 'LATEST.TXT' )
+
+    ant.get( src: latestURL, dest: latestFile.absolutePath, skipexisting: false )
+
+    def distroURL = latestFile.readLines()[ 0 ]
+    def distroZip = new File( buildDir, distroURL.substring( distroURL.lastIndexOf( '/' ) ) )
+
+    ant.get( src: distroURL, dest: distroZip.absolutePath, skipexisting: true )
+
+    def typeDir = new File( distDir, typePath )
+    mkdir typeDir
+
+    ant.untar( src: distroZip, dest: typeDir, compression: 'gzip' )
+  }
+
+  task distCopy( type: Copy, dependsOn: fetchLatest ) {
+    from( distDir )
+    into( rootProject.distDir )
+
+    rootProject.tasks[ 'packageDist' ].dependsOn << distCopy
+  }
+}
+
+// publishing code
+
+task createArchiveLatest( dependsOn: packageDist ) {
+
+  ext.latestArchivePath = null
+}
+
+createArchiveLatest << {
+
+  def publishBucket = System.properties[ 'publish.bucket' ]
+  def releaseTar = packageDist.archiveName
+
+  latestArchivePath = new File( buildDir, 'latest.txt' )
+  latestArchivePath.write( "http://${publishBucket}/${applicationGroup}/${majorVersion}/${releaseTar}" )
+}
+
+task s3Upload( dependsOn: createArchiveLatest ) << {
+
+  def awsAccessId = System.properties[ 'publish.aws.accessId' ]
+  def awsSecretKey = System.properties[ 'publish.aws.secretKey' ]
+  def s3Bucket = System.properties[ 'publish.bucket' ]
+
+  assert s3Bucket
+
+  def remotePath = "${applicationGroup}/${majorVersion}/"
+
+  ant.taskdef( name: 's3Upload', classname: 'dak.ant.taskdefs.S3Upload',
+          classpath: configurations.s3AntTask.asPath )
+
+  ant.s3Upload( verbose: 'true', accessId: awsAccessId, secretKey: awsSecretKey,
+          bucket: s3Bucket, prefix: remotePath, publicRead: 'true' ) {
+
+    fileset( file: packageDist.archivePath )
+    fileset( file: createArchiveLatest.latestArchivePath )
+  }
+}
+
+
