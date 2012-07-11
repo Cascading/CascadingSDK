@@ -4,9 +4,7 @@
  * Project and contact information: http://www.concurrentinc.com/
  */
 
-include 'cascading'
-include 'multitool'
-include 'load'
-include 'loganalysis'
-include 'logparser'
-include 'wordcount'
+fetchLatest {
+  typePath = "source"
+  latestURL = 'http://files.cascading.org/samples/2.0/logparser/latest.txt'
+}
