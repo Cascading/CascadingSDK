@@ -4,6 +4,8 @@
  * Project and contact information: http://www.concurrentinc.com/
  */
 
+import org.apache.tools.ant.filters.ReplaceTokens
+
 import java.text.SimpleDateFormat
 
 if( project.properties[ 'teamcity' ] ) // make them system properties
@@ -42,7 +44,29 @@ allprojects {
   }
 }
 
-task packageDist( type: Tar ) {
+task copyEnv( type: Copy ) {
+  from 'etc/setenv.sh'
+  into "${distDir}/etc"
+}
+
+copyEnv.doFirst() {
+  mkdir "${distDir}/etc"
+
+  def binPaths = [ ]
+
+  fileTree( distDir ) {
+    include '*/*/bin/'
+  }.visit { element ->
+    if( element.isDirectory() && element.getName().equals( 'bin' ) )
+      binPaths << element.getRelativePath()
+  }
+
+  def pathString = binPaths.collect { path -> "\${CASCADING_SDK_HOME}/${path}" }.join( ':' )
+
+  filter( ReplaceTokens, tokens: [ BIN_PATHS: pathString ] )
+}
+
+task packageDist( type: Tar, dependsOn: copyEnv ) {
   description = 'Creates the sdk archive.'
 
   baseName = applicationName
@@ -63,8 +87,8 @@ subprojects {
   ext.distDir = "${buildDir}/dist"
 
   task fetchLatest {
-    ext.latestURL = null;
-    ext.typePath = '';
+    ext.latestURL = null
+    ext.typePath = ''
 
     outputs.dir distDir
   }
@@ -96,6 +120,7 @@ subprojects {
     into( rootProject.distDir )
 
     rootProject.tasks[ 'packageDist' ].dependsOn << distCopy
+    rootProject.tasks[ 'copyEnv' ].dependsOn << distCopy
   }
 }
 
