@@ -88,31 +88,39 @@ subprojects {
 
   task fetchLatest {
     ext.latestURL = null
+    ext.distroURL = null
     ext.typePath = ''
 
     outputs.dir distDir
   }
 
-  fetchLatest.onlyIf { fetchLatest.latestURL != null }
+  fetchLatest.onlyIf { fetchLatest.latestURL != null || fetchLatest.distroURL != null }
 
   fetchLatest << {
 
     mkdir buildDir
     mkdir distDir
 
-    def latestFile = new File( buildDir, 'LATEST.TXT' )
+    if( distroURL == null )
+    {
+      def latestFile = new File( buildDir, 'LATEST.TXT' )
 
-    ant.get( src: latestURL, dest: latestFile.absolutePath, skipexisting: false )
+      ant.get( src: latestURL, dest: latestFile.absolutePath, skipexisting: false )
 
-    def distroURL = latestFile.readLines()[ 0 ]
+      distroURL = latestFile.readLines()[ 0 ]
+    }
+
     def distroZip = new File( buildDir, distroURL.substring( distroURL.lastIndexOf( '/' ) ) )
 
     ant.get( src: distroURL, dest: distroZip.absolutePath, skipexisting: true )
 
-    def typeDir = new File( distDir, typePath )
+    ext.typeDir = new File( distDir, typePath )
     mkdir typeDir
 
-    ant.untar( src: distroZip, dest: typeDir, compression: 'gzip' )
+    if( distroURL.endsWith( 'zip' ) )
+      ant.unzip( src: distroZip, dest: typeDir )
+    else
+      ant.untar( src: distroZip, dest: typeDir, compression: 'gzip' )
   }
 
   task distCopy( type: Copy, dependsOn: fetchLatest ) {

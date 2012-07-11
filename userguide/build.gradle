@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+import org.apache.tools.ant.filters.ReplaceTokens
+
+fetchLatest {
+  typePath = "docs"
+  distroURL = 'http://docs.cascading.org/cascading/2.0/userguide/html/userguide.zip'
+}
+
+fetchLatest << {
+
+  new File( typeDir, 'html' ).renameTo( new File( typeDir, 'userguide' ) )
+}
+
+distCopy {
+
+  from( distDir ) {
+    include '**/*.html'
+    filter( ReplaceTokens, tokens: [ ANALYTICS: '' ] )
+  }
+}
