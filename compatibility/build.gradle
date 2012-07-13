@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+
+fetchLatest {
+  typePath = "tools"
+  distroURL = 'https://github.com/Cascading/cascading.compatibility/tarball/master'
+}
+
+fetchLatest << {
+
+  new File( typeDir, 'pax_global_header' ).delete();
+
+  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'compatibility' ) )
+}
