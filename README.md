@@ -31,3 +31,32 @@ To build a local version of the SDK package, execute the following command:
 ```bash
  > gradle packageDist
 ```
+
+## Redistribution
+
+This SDK was created to make it easier for third-parties to redistribute Cascading and any related
+documentation and sub-projects.
+
+Because the SDK includes many pre-built binaries and tools, it is important that each third-party shipping
+this SDK along with their own Hadoop distribution, that they "certify" their distribution as being both
+binary and functionally compatible.
+
+### Binary Compatibility
+
+This SDK includes the Cascading Compatibility project under 'tools/compatibility'. This project is also
+available on GitHub at https://github.com/Cascading/cascading.compatibility.
+
+Please follow the instructions on the README.md file to run the binary compatibility test.
+
+### Functional Compatibility
+
+To test Cascading on a running cluster, this SDK includes the Cascading Load project under 'tools/load-<release date>'.
+This project is also available on GitHub at https://github.com/Cascading/cascading.load.
+
+Please run the Load application on a given cluster with the following switches:
+
+```bash
+  > hadoop jar load-<release-date>.jar --certify-tests -I input -O output -W working
+```
+
+This will execute a set of preconfigured work loads to verify any standard Cascading application can run at scale.
