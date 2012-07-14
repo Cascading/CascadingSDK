@@ -73,7 +73,7 @@ task packageDist( type: Tar, dependsOn: copyEnv ) {
   version = timestamp
   compression = "GZIP"
   destinationDir = file( distributionDir )
-  from distDir
+  from "${buildDir}/dist/"
 }
 
 allprojects {
@@ -166,6 +166,7 @@ task s3Upload( dependsOn: createArchiveLatest ) << {
 
     fileset( file: packageDist.archivePath )
     fileset( file: createArchiveLatest.latestArchivePath )
+    fileset( file: 'etc/emr/install-cascading-sdk.sh' )
   }
 }
 
