@@ -37,6 +37,28 @@ To download a current copy of the Cascading SDK release, execute the following c
  > wget -i http://files.cascading.org/sdk/2.0/latest.txt
 ```
 
+## Installing on AWS Elastic MapReduce
+
+To pre-install the SDK on a new instance of AWS EMR, use the following bootstrap action:
+
+    s3://files.cascading.org/sdk/2.0/install-cascading-sdk.sh
+
+This will download the latest SDK, unarchive it into the default user home directory, and add any tools
+to the PATH.
+
+This bootstrap action has the following arguments:
+
+    # Usage:
+    #  --user-home - an alternative user to install into, default /home/hadoop
+    #  --tmpdir - an alternative temporary directory, default TMPDIR or /tmp if not set
+    #  --no-screen - do not install screen, screen is installed by default on the master as a convenience
+    #  --latest - url to text file referencing the latest version
+    #  --no-bash - do not update .bashrc
+
+When using a bootstrap action with the EMR ruby client, remember to use commas instead of spaces between arguments:
+
+    --bootstrap-action s3://files.cascading.org/sdk/2.0/install-cascading-sdk.sh --args "--tmpdir,/tmp"
+
 # Other
 
 ## Redistribution
