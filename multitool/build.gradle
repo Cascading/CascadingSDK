@@ -8,3 +8,9 @@ fetchLatest {
   typePath = "tools"
   latestURL = 'http://files.cascading.org/multitool/2.0/latest.txt'
 }
+
+distCopy << {
+  fileTree( rootProject.distDir )
+          .include( '**/bin/multitool' )
+          .visit { element -> element.getFile().setExecutable( true, false )}
+}
