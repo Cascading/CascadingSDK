@@ -122,7 +122,7 @@ subprojects {
     ext.typeDir = new File( distDir, typePath )
     mkdir typeDir
 
-    if( distroURL.endsWith( 'zip' ) )
+    if( distroURL.endsWith( 'zip' ) || distroURL.contains( 'zipball' ) )
       ant.unzip( src: distroZip, dest: typeDir )
     else
       ant.untar( src: distroZip, dest: typeDir, compression: 'gzip' )

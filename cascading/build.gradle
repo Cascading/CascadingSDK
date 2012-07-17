@@ -8,3 +8,8 @@ fetchLatest {
   typePath = "source"
   latestURL = 'http://files.cascading.org/cascading/2.0/latest.txt'
 }
+
+fetchLatest << {
+
+  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'cascading' ) )
+}

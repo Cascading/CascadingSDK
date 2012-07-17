@@ -6,10 +6,10 @@
 
 fetchLatest {
   typePath = "source"
-  distroURL = 'https://github.com/Cascading/SampleRecommender/zipball/master'
+  distroURL = 'https://github.com/Cascading/cascading/zipball/2.0'
 }
 
 fetchLatest << {
 
-  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'SampleRecommender' ) )
+  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'cascading-src' ) )
 }

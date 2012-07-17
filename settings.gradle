@@ -5,6 +5,7 @@
  */
 
 include 'cascading'
+include 'cascading-src'
 include 'userguide'
 include 'multitool'
 include 'load'
