@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "tools"
-  distroURL = 'https://github.com/Cascading/cascading.compatibility/tarball/master'
+  distroURL = 'https://github.com/Cascading/cascading.compatibility/tarball/2.0'
 }
 
 fetchLatest << {
