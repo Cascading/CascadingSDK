@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "tools"
-  latestURL = 'http://files.cascading.org/load/2.0/latest.txt'
+  latestURL = "http://files.cascading.org/load/${majorVersion}/latest.txt"
 }
 
 distCopy << {

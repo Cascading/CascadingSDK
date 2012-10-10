@@ -1,8 +1,8 @@
-# Cascading 2.0 SDK
+# Cascading 2.1 SDK
 
 This project contains the build scripts for creating the Cascading SDK release.
 
-The SDK distribution, available online, includes Cascading 2.0 and any related projects in a single archive.
+The SDK distribution, available online, includes Cascading 2.1 and any related projects in a single archive.
 
 Every project or extension included in this SDK has been tested independently before being downloaded and
 included in the package created by these build scripts.

@@ -8,7 +8,7 @@ set -e -x
 #  --latest - url to text file referencing the latest version
 #  --no-bash - do not update .bashrc
 
-LATEST=http://files.cascading.org/sdk/2.0/latest.txt
+LATEST=http://files.cascading.org/sdk/2.1/latest.txt
 
 case "`uname`" in
   Darwin)
@@ -81,7 +81,7 @@ if [ "$IS_MASTER" = "false" && "$INSTALL_ON_SLAVES" = "false" ]; then
   exit 0
 fi
 
-SDK_HOME=$USER_HOME/Cascading-2.0-SDK
+SDK_HOME=$USER_HOME/Cascading-2.1-SDK
 
 [ -d $SDK_HOME ] && UPDATE_BASH=
 
@@ -99,7 +99,7 @@ mv `find $USER_HOME -name 'Cascading-2.0-SDK-*' -type d` $SDK_HOME
 if [ -n "$UPDATE_BASH" ]; then
 cat >> $USER_HOME/$BASH_PROFILE <<- EOF
 
-# Cascading 2.0 SDK - Concurrent, Inc.
+# Cascading 2.1 SDK - Concurrent, Inc.
 # http://www.concurrentinc.com/
 
 export CASCADING_SDK_HOME=$SDK_HOME

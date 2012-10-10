@@ -6,5 +6,5 @@
 
 fetchLatest {
   typePath = "source"
-  latestURL = 'http://files.cascading.org/samples/2.0/logparser/latest.txt'
+  latestURL = "http://files.cascading.org/samples/${majorVersion}/logparser/latest.txt"
 }

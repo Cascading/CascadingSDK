@@ -3,11 +3,12 @@
  *
  * Project and contact information: http://www.concurrentinc.com/
  */
+
 import org.apache.tools.ant.filters.ReplaceTokens
 
 fetchLatest {
   typePath = "docs"
-  distroURL = 'http://docs.cascading.org/cascading/2.0/userguide/html/userguide.zip'
+  distroURL = "http://docs.cascading.org/cascading/${majorVersion}/userguide/html/userguide.zip"
 }
 
 fetchLatest << {
