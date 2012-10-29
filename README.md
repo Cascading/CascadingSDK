@@ -57,7 +57,7 @@ This bootstrap action has the following arguments:
 
 When using a bootstrap action with the EMR ruby client, remember to use commas instead of spaces between arguments:
 
-    --bootstrap-action s3://files.cascading.org/sdk/2.0/install-cascading-sdk.sh --args "--tmpdir,/tmp"
+    --bootstrap-action s3://files.cascading.org/sdk/2.1/install-cascading-sdk.sh --args "--tmpdir,/tmp"
 
 # Other
 
