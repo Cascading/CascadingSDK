@@ -94,7 +94,7 @@ ARCHIVE=`find $TMPDIR -name 'Cascading-*.tgz'`
 TMPFILE=`mktemp -d -t sdk.XXXXX`
 [ -d $SDK_HOME ] && mv $SDK_HOME $TMPFILE
 tar -xzf $ARCHIVE -C $USER_HOME
-mv `find $USER_HOME -name 'Cascading-2.0-SDK-*' -type d` $SDK_HOME
+mv `find $USER_HOME -name 'Cascading-2.1-SDK-*' -type d` $SDK_HOME
 
 if [ -n "$UPDATE_BASH" ]; then
 cat >> $USER_HOME/$BASH_PROFILE <<- EOF
