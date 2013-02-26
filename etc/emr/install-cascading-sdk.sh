@@ -29,7 +29,7 @@ then
   USER_HOME=/home/hadoop
 fi
 
-[ -n $TMPDIR ] && TMPDIR=/tmp
+[ -z "$TMPDIR" ] && TMPDIR=/tmp
 
 error_msg () # msg
 {
