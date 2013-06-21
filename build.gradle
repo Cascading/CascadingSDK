@@ -8,6 +8,8 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 import java.text.SimpleDateFormat
 
+import com.monochromeroad.gradle.plugin.aws.s3.S3Sync
+
 if( project.properties[ 'teamcity' ] ) // make them system properties
   System.properties.putAll( project.properties[ 'teamcity' ] )
 
@@ -28,6 +30,7 @@ ext.archiveBaseName = "${applicationName}-${timestamp}"
 ext.distDir = "${buildDir}/dist/${archiveBaseName}"
 ext.distributionDir = "${buildDir}/distribution"
 
+// TODO externalize these
 ext.sourceBucket = "files.concurrentinc.com"
 ext.docSourceBucket = "docs.concurrentinc.com"
 
@@ -35,8 +38,18 @@ configurations {
   s3AntTask
 }
 
-dependencies {
-  s3AntTask 'thirdparty:awstasks:0.3'
+buildscript {
+  repositories {
+    mavenCentral()
+    mavenLocal()
+    mavenRepo name: 'conjars', url: 'http://conjars.org/repo'
+    // XXX put this back in, as soon as upstream has a new release
+    //mavenRepo name: 'monochromeroad', url: 'http://repository-monochromeroad.forge.cloudbees.com/release/'
+  }
+  dependencies {
+    /// XXX change back to original group id after new upstream release
+    classpath group: 'thirdparty', name: "gradle-aws-s3-sync", version: '0.5.1'
+  }
 }
 
 allprojects {
@@ -149,33 +162,40 @@ task createArchiveLatest( dependsOn: packageDist ) {
 
 createArchiveLatest << {
 
-  def publishBucket = System.properties[ 'publish.bucket' ]
+  //def publishBucket = System.properties[ 'publish.bucket' ]
+  // TODO externalize this
+  def publishBucket = "files.concurrentinc.com"
   def releaseTar = packageDist.archiveName
 
-  latestArchivePath = new File( buildDir, 'latest.txt' )
+  assert publishBucket
+
+  latestArchivePath = new File( distributionDir, 'latest.txt' )
   latestArchivePath.write( "http://${publishBucket}/${applicationGroup}/${majorVersion}/${releaseTar}" )
 }
 
-task s3Upload( dependsOn: createArchiveLatest ) << {
-
-  def awsAccessId = System.properties[ 'publish.aws.accessId' ]
-  def awsSecretKey = System.properties[ 'publish.aws.secretKey' ]
-  def s3Bucket = System.properties[ 'publish.bucket' ]
-
-  assert s3Bucket
-
-  def remotePath = "${applicationGroup}/${majorVersion}/"
-
-  ant.taskdef( name: 's3Upload', classname: 'dak.ant.taskdefs.S3Upload',
-          classpath: configurations.s3AntTask.asPath )
-
-  ant.s3Upload( verbose: 'true', accessId: awsAccessId, secretKey: awsSecretKey,
-          bucket: s3Bucket, prefix: remotePath, publicRead: 'true' ) {
-
-    fileset( file: packageDist.archivePath )
-    fileset( file: createArchiveLatest.latestArchivePath )
-    fileset( file: 'etc/emr/install-cascading-sdk.sh' )
-  }
+task copyEMRScript(type: Copy){
+    from fileTree("etc/emr")
+    into distributionDir
 }
 
 
+task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
+
+  accessKey = System.properties[ 'publish.aws.accessId' ]
+  secretKey = System.properties[ 'publish.aws.secretKey' ]
+  // TODO externalize this
+  //s3Bucket = System.properties[ 'publish.bucket' ]
+  s3Bucket = "files.concurrentinc.com"
+
+  assert accessKey
+  assert secretKey
+  assert s3Bucket
+  
+  keepFiles = true
+
+  configFile = "${rootProject.projectDir}/etc/synchronizer.properties"
+
+  into "${s3Bucket}/${applicationGroup}/${majorVersion}/"
+  from distributionDir
+
+}

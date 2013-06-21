@@ -9,3 +9,5 @@ javadoc
 *.iws
 *.ipr
 .gradle
+.sw[a-z]
+aws.properties
