@@ -185,7 +185,7 @@ task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
   secretKey = System.properties[ 'publish.aws.secretKey' ]
   // TODO externalize this
   //s3Bucket = System.properties[ 'publish.bucket' ]
-  s3Bucket = "files.concurrentinc.com"
+  def s3Bucket = "files.concurrentinc.com"
 
   assert accessKey
   assert secretKey
