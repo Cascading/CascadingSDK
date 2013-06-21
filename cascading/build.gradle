@@ -1,12 +1,12 @@
 /*
- * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
  *
  * Project and contact information: http://www.concurrentinc.com/
  */
 
 fetchLatest {
   typePath = "source"
-  latestURL = 'http://files.cascading.org/cascading/2.0/latest.txt'
+  latestURL = "http://${rootProject.sourceBucket}/cascading/${rootProject.majorVersion}/latest.txt"
 }
 
 fetchLatest << {

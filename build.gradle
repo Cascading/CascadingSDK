@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2012 Concurrent, Inc. All Rights Reserved.
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
  *
  * Project and contact information: http://www.concurrentinc.com/
  */
@@ -20,13 +20,16 @@ if( System.properties[ 'aws.properties' ] )
   }
 }
 
-ext.majorVersion = 2.0
+ext.majorVersion = 2.2
 ext.applicationGroup = "sdk"
 ext.applicationName = "Cascading-${majorVersion}-SDK"
 ext.timestamp = new SimpleDateFormat( "yyyyMMdd" ).format( new Date() )
 ext.archiveBaseName = "${applicationName}-${timestamp}"
 ext.distDir = "${buildDir}/dist/${archiveBaseName}"
 ext.distributionDir = "${buildDir}/distribution"
+
+ext.sourceBucket = "files.concurrentinc.com"
+ext.docSourceBucket = "docs.concurrentinc.com"
 
 configurations {
   s3AntTask

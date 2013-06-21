@@ -7,7 +7,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 fetchLatest {
   typePath = "docs"
-  distroURL = 'http://docs.cascading.org/cascading/2.0/userguide/html/userguide.zip'
+  distroURL = "http://${rootProject.docSourceBucket}/cascading/${rootProject.majorVersion}/userguide/html/userguide.zip"
 }
 
 fetchLatest << {
