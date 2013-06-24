@@ -42,7 +42,7 @@ The `tools` subdirectory includes a few prebuilt command line tools. To add them
 
 ```bash
  > export CASCADING_SDK_HOME=<sdk install path>
- > source <sdk install path>/etc/setenv.sh
+ > source $CASCADING_SDK_HOME/etc/setenv.sh
 ```
 
 ## Downloading the latest SDK release
