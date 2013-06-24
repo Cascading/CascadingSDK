@@ -1,4 +1,4 @@
-# Cascading 2.0 SDK
+# Cascading 2.2 SDK
 
 This project contains the build scripts for creating the Cascading SDK release.
 
@@ -34,14 +34,14 @@ The `tools` subdirectory includes a few prebuilt command line tools. To add them
 To download a current copy of the Cascading SDK release, execute the following command:
 
 ```bash
- > wget -i http://files.cascading.org/sdk/2.0/latest.txt
+ > wget -i http://files.cascading.org/sdk/2.2/latest.txt
 ```
 
 ## Installing on AWS Elastic MapReduce
 
 To pre-install the SDK on a new instance of AWS EMR, use the following bootstrap action:
 
-    s3://files.cascading.org/sdk/2.0/install-cascading-sdk.sh
+    s3://files.cascading.org/sdk/2.2/install-cascading-sdk.sh
 
 This will download the latest SDK, unarchive it into the default user home directory, and add any tools
 to the PATH.
