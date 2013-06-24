@@ -15,3 +15,6 @@ include 'wordcount'
 include 'recommender'
 include 'compatibility'
 include 'lingual'
+
+include 'thirdparty/scalding-src'
+include 'thirdparty/cascalog-src'

@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+
+fetchLatest {
+  typePath = "source/thirdparty"
+  distroURL = "https://github.com/nathanmarz/cascalog/zipball/1.10.1"
+}
+
+fetchLatest << {
+
+  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'scalding-src' ) )
+}

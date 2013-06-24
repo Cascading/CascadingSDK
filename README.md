@@ -9,7 +9,14 @@ included in the package created by these build scripts.
 
 # Getting Started
 
-This SDK includes `source`, `docs`, and `tools` subdirectories.
+This SDK includes `binary`, `source`, `docs`, `thirdparty` and `tools` subdirectories.
+
+
+## Binary
+
+The `binary` subdirectory contains the latest version of all cascading jars,
+their dependencies and the javadoc.
+
 
 ## Source
 
@@ -19,6 +26,15 @@ any related API docs.
 ## Docs
 
 The `docs` subdirectory includes the Cascading User Guide, and any related tutorials.
+
+## Thirdparty
+
+The `thirdparty` subdirectory contains open source libraries and tools built on
+top of cascading, which are developed in their own communities. 
+
+Currently these are [http://github.com/twitter/scalding](scalding) and
+[http://github.com/nathanmarz/cascalog](cascalog).
+
 
 ## Tools
 

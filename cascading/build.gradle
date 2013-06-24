@@ -5,7 +5,7 @@
  */
 
 fetchLatest {
-  typePath = "source"
+  typePath = "binary"
   latestURL = "http://${rootProject.sourceBucket}/cascading/${rootProject.majorVersion}/latest.txt"
 }
 
