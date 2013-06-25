@@ -3,3 +3,5 @@
 
 PATH=@BIN_PATHS@:$PATH
 
+for en in $CASCADING_SDK_HOME/etc/env.d/*.sh ; do . $en ; done
+unset en
