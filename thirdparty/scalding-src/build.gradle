@@ -5,7 +5,7 @@
  */
 
 fetchLatest {
-  typePath = "source/thirdparty"
+  typePath = "thirdparty/source"
   distroURL = "https://github.com/twitter/scalding/zipball/0.8.5"
 }
 

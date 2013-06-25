@@ -65,6 +65,11 @@ task copyEnv( type: Copy ) {
   into "${distDir}/etc"
 }
 
+task copyEnvD( type: Copy ) {
+  from 'etc/env.d'
+  into "${distDir}/etc/env.d"
+}
+
 copyEnv.doFirst() {
   mkdir "${distDir}/etc"
 
@@ -82,7 +87,7 @@ copyEnv.doFirst() {
   filter( ReplaceTokens, tokens: [ BIN_PATHS: pathString ] )
 }
 
-task copySupport( type: Copy, dependsOn: copyEnv ) {
+task copySupport( type: Copy, dependsOn: [copyEnv, copyEnvD] ) {
   from 'README.md'
   into distDir
 }
@@ -187,9 +192,10 @@ task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
   //s3Bucket = System.properties[ 'publish.bucket' ]
   def s3Bucket = "files.concurrentinc.com"
 
-  assert accessKey
-  assert secretKey
-  assert s3Bucket
+  // this should probably be enabled, but it is off for now to easy development
+  //assert accessKey
+  //assert secretKey
+  //assert s3Bucket
   
   keepFiles = true
 
