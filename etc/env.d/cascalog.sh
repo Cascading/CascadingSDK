@@ -1,3 +1,4 @@
+set -u
 # 
 #  Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
 # 
@@ -17,35 +18,31 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
    
-set -u
-
 
 # implemented as a function to no pollute the environment
-function scaldingPath(){
+function cascalogPath(){
 
-    WANTED_VERSION="2.10"
+WANTED_VERSION_MAJOR="2"
 
+if [ -z "$(which lein)" ]
+then
+    echo "for cascalog support, please install leinigen ${WANTED_VERSION} or later."
+else
+    local VERSION_ARRAY=($(lein -version  2>&1)// /)
+    local FULL_LEIN_VERSION="${VERSION_ARRAY[1]}"
+    local IFS=\\. 
+    read -a VERSION_PARTS <<< "${FULL_LEIN_VERSION}"
 
-    if [ -z "$SCALA_HOME" ] || [ -z "$(which sbt)" ] 
+    local LEIN_MAJOR_VERSION="${VERSION_PARTS[0]}"
+
+    if [ "$LEIN_MAJOR_VERSION" != "$WANTED_VERSION_MAJOR" ]
     then
-        echo -n  "for scalding support, please install scala ${WANTED_VERSION} "
-        echo     "and sbt."
-    else
-        local VERSION_ARRAY=($(scala -version  2>&1)// /)
-        local FULL_SCALA_VERSION="${VERSION_ARRAY[4]}"
-        local IFS=\\. 
-        read -a VERSION_PARTS <<< "${FULL_SCALA_VERSION}"
-
-        local SCALA_VERSION="${VERSION_PARTS[0]}.${VERSION_PARTS[1]}" 
-
-        if [ "$SCALA_VERSION" != $WANTED_VERSION ]
-        then
-            echo -n "Your scala version $FULL_SCALA_VERSION will not work "
-            echo    "with scalding. Please install scala $WANTED_VERSION"
-            # TODO add PATH magic here, once we know, how
-        fi
-
+        echo -n "Your leinigen version $FULL_LEIN_VERSION will not work with "
+        echo    "cascalog. Please install leinigen $WANTED_VERSION_MAJOR or later"
+        # TODO add PATH magic here, once we know, how
     fi
+
+fi
 }
 
-scaldingPath
+cascalogPath
