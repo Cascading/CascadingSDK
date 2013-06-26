@@ -19,5 +19,4 @@ include 'lingual'
 include 'thirdparty/scalding-src'
 include 'thirdparty/cascalog-src'
 
-include 'thirdparty/scalding-scala-2.9'
 include 'thirdparty/scalding-scala-2.10'
