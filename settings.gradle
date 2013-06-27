@@ -18,3 +18,5 @@ include 'lingual'
 
 include 'thirdparty/scalding-src'
 include 'thirdparty/cascalog-src'
+
+include 'thirdparty/scalding-tutorial'
