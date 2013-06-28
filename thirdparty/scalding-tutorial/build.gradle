@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "thirdparty/source"
-  distroURL = "https://github.com/fs111/scalding-tutorial-project/zipball/0.8.5"
+  distroURL = "https://github.com/Cascading/scalding-tutorial/zipball/0.8.5"
 }
 
 fetchLatest << {
