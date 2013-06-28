@@ -8,7 +8,7 @@ set -e -x
 #  --latest - url to text file referencing the latest version
 #  --no-bash - do not update .bashrc
 
-LATEST=http://files.cascading.org/sdk/2.0/latest.txt
+LATEST=http://files.cascading.org/sdk/2.2/latest.txt
 
 case "`uname`" in
   Darwin)
@@ -21,6 +21,8 @@ INSTALL_ON_SLAVES=false
 BASH_PROFILE=.bashrc
 INSTALL_SCREEN=y
 UPDATE_BASH=y
+
+CASCADING_VERSION="2.2"
 
 IS_MASTER=true
 if [ -f /mnt/var/lib/info/instance.json ]
@@ -81,7 +83,7 @@ if [ "$IS_MASTER" = "false" && "$INSTALL_ON_SLAVES" = "false" ]; then
   exit 0
 fi
 
-SDK_HOME=$USER_HOME/Cascading-2.0-SDK
+SDK_HOME=$USER_HOME/Cascading-$CASCADING_VERSION-SDK
 
 [ -d $SDK_HOME ] && UPDATE_BASH=
 
@@ -94,12 +96,13 @@ ARCHIVE=`find $TMPDIR -name 'Cascading-*.tgz'`
 TMPFILE=`mktemp -d -t sdk.XXXXX`
 [ -d $SDK_HOME ] && mv $SDK_HOME $TMPFILE
 tar -xzf $ARCHIVE -C $USER_HOME
-mv `find $USER_HOME -name 'Cascading-2.0-SDK-*' -type d` $SDK_HOME
+SDK_PREFIX="Cascading-$CASCADING_VERSION-SDK-"
+mv `find $USER_HOME -name $SDK_PREFIX'*' -type d` $SDK_HOME
 
 if [ -n "$UPDATE_BASH" ]; then
 cat >> $USER_HOME/$BASH_PROFILE <<- EOF
 
-# Cascading 2.0 SDK - Concurrent, Inc.
+# Cascading $CASCADING_VERSION SDK - Concurrent, Inc.
 # http://www.concurrentinc.com/
 
 export CASCADING_SDK_HOME=$SDK_HOME
