@@ -2,7 +2,7 @@
 
 This project contains the build scripts for creating the Cascading SDK release.
 
-The SDK distribution, available online, includes Cascading 2.0 and any related projects in a single archive.
+The SDK distribution, available online, includes Cascading 2.2 and any related projects in a single archive.
 
 Every project or extension included in this SDK has been tested independently before being downloaded and
 included in the package created by these build scripts.
@@ -32,8 +32,17 @@ The `docs` subdirectory includes the Cascading User Guide, and any related tutor
 The `thirdparty` subdirectory contains open source libraries and tools built on
 top of cascading, which are developed in their own communities. 
 
-Currently these are [http://github.com/twitter/scalding](scalding) and
-[http://github.com/nathanmarz/cascalog](cascalog).
+Currently these are [scalding](http://github.com/twitter/scalding) and [cascalog](http://github.com/nathanmarz/cascalog).
+
+### Scalding
+
+The SDK includes the source code of scalding as well as a ready to use tutorial
+project to get you started with scalding. You an find the source code in
+`thirdparty/scalding-src` and the tutorial in `thirdparty/scalding-tutorial`.
+
+### Cascalog
+
+
 
 
 ## Tools
