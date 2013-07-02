@@ -30,20 +30,36 @@ The `docs` subdirectory includes the Cascading User Guide, and any related tutor
 ## Thirdparty
 
 The `thirdparty` subdirectory contains open source libraries and tools built on
-top of cascading, which are developed in their own communities. 
-
-Currently these are [scalding](http://github.com/twitter/scalding) and [cascalog](http://github.com/nathanmarz/cascalog).
+top of cascading, which are developed in their own communities. Currently these
+are [scalding](http://github.com/twitter/scalding) and
+[cascalog](http://github.com/nathanmarz/cascalog).
 
 ### Scalding
 
-The SDK includes the source code of scalding as well as a ready to use tutorial
-project to get you started with scalding. You an find the source code in
-`thirdparty/scalding-src` and the tutorial in `thirdparty/scalding-tutorial`.
+Scalding is [Scala](http://www.scala-lang.org/) API for Cascadind developed by
+[twitter](http://twitter.com). 
+
+The SDK includes the source code of scalding as
+well as a ready to use tutorial project to get you started with scalding. You an
+find the source code in `thirdparty/source/scalding-src` and the tutorial in
+`thirdparty/source/scalding-tutorial`. 
+
+**Note:** In order to follow the tutorial you have to have
+[`SBT`](http://www.scala-sbt.org/) installed. For more information see
+`thirdparty/source/scalding-tutorial/README.md`.
 
 ### Cascalog
 
+> Cascalog is fully-featured data processing and querying library
+> for [Clojure](http://clojure.org/) or Java.
 
+The SDK includes the source code of cascalog and a ready to go project for
+the cascalog tutorial. You find the source code in
+`thirdparty/source/cascalog-src` and the tutorial in `thirdparty/binary/cascalog-tutorial`.
 
+**Note:** In order to follow the cascalog tutorial you have to have
+[`leiningen 2`](http://leiningen.org/) installed. For more information see
+`thirdparty/binary/cascalog-tutorial/README.md`
 
 ## Tools
 
