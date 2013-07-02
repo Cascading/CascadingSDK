@@ -36,8 +36,8 @@ are [scalding](http://github.com/twitter/scalding) and
 
 ### Scalding
 
-Scalding is [Scala](http://www.scala-lang.org/) API for Cascadind developed by
-[twitter](http://twitter.com). 
+> Scalding is [Scala](http://www.scala-lang.org/) API for Cascadind developed by
+> [twitter](http://twitter.com). 
 
 The SDK includes the source code of scalding as
 well as a ready to use tutorial project to get you started with scalding. You an
