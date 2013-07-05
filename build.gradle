@@ -30,9 +30,8 @@ ext.archiveBaseName = "${applicationName}-${timestamp}"
 ext.distDir = "${buildDir}/dist/${archiveBaseName}"
 ext.distributionDir = "${buildDir}/distribution"
 
-// TODO externalize these
-ext.sourceBucket = "files.concurrentinc.com"
-ext.docSourceBucket = "docs.concurrentinc.com"
+ext.sourceBucket = System.getProperty("source.bucket")  ?: "files.concurrentinc.com"
+ext.docSourceBucket = System.getProperty("doc.source.bucket") ?: "docs.concurrentinc.com"
 
 configurations {
   s3AntTask
@@ -167,9 +166,7 @@ task createArchiveLatest( dependsOn: packageDist ) {
 
 createArchiveLatest << {
 
-  //def publishBucket = System.properties[ 'publish.bucket' ]
-  // TODO externalize this
-  def publishBucket = "files.concurrentinc.com"
+  def publishBucket = System.properties[ 'publish.bucket' ] :?  "files.concurrentinc.com"
   def releaseTar = packageDist.archiveName
 
   assert publishBucket
@@ -188,11 +185,10 @@ task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
 
   accessKey = System.properties[ 'publish.aws.accessId' ]
   secretKey = System.properties[ 'publish.aws.secretKey' ]
-  // TODO externalize this
-  //s3Bucket = System.properties[ 'publish.bucket' ]
-  def s3Bucket = "files.concurrentinc.com"
 
-  // this should probably be enabled, but it is off for now to ease development
+  s3Bucket = System.properties[ 'publish.bucket' ] ?: "files.concurrentinc.com"
+
+  // XXX this should probably be enabled, but it is off for now to ease development
   //assert accessKey
   //assert secretKey
   //assert s3Bucket
