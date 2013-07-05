@@ -166,7 +166,7 @@ task createArchiveLatest( dependsOn: packageDist ) {
 
 createArchiveLatest << {
 
-  def publishBucket = System.properties[ 'publish.bucket' ] :?  "files.concurrentinc.com"
+  def publishBucket = System.properties[ 'publish.bucket' ] ?:  "files.concurrentinc.com"
   def releaseTar = packageDist.archiveName
 
   assert publishBucket
