@@ -21,15 +21,14 @@ set -u
 
 
 # implemented as a function to no pollute the environment
-function scaldingPath(){
+function discoverScala(){
 
     WANTED_VERSION="2.10"
 
-
-    if [ -z "$SCALA_HOME" ] || [ -z "$(which sbt)" ] 
+    if [ -z "$(which sbt)" ] 
     then
-        echo -n  "for scalding support, please install scala ${WANTED_VERSION} "
-        echo     "and sbt."
+        echo -n  "for scalding support, please install sbt from "
+        echo     "http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html"
     else
         local VERSION_ARRAY=($(scala -version  2>&1)// /)
         local FULL_SCALA_VERSION="${VERSION_ARRAY[4]}"
@@ -42,10 +41,9 @@ function scaldingPath(){
         then
             echo -n "Your scala version $FULL_SCALA_VERSION will not work "
             echo    "with scalding. Please install scala $WANTED_VERSION"
-            # TODO add PATH magic here, once we know, how
         fi
 
     fi
 }
 
-scaldingPath
+discoverScala

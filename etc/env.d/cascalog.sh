@@ -1,4 +1,3 @@
-set -u
 # 
 #  Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
 # 
@@ -19,8 +18,10 @@ set -u
 #  limitations under the License.
    
 
+set -u
+
 # implemented as a function to no pollute the environment
-function cascalogPath(){
+function discoverLein(){
 
 WANTED_VERSION_MAJOR="2"
 
@@ -38,11 +39,11 @@ else
     if [ "$LEIN_MAJOR_VERSION" != "$WANTED_VERSION_MAJOR" ]
     then
         echo -n "Your leinigen version $FULL_LEIN_VERSION will not work with "
-        echo    "cascalog. Please install leinigen $WANTED_VERSION_MAJOR or later"
-        # TODO add PATH magic here, once we know, how
+        echo -n "cascalog. Please install leinigen $WANTED_VERSION_MAJOR from "
+        echo    " http://leiningen.org/#install"
     fi
 
 fi
 }
 
-cascalogPath
+discoverLein
