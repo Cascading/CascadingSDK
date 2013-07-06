@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+
+fetchLatest {
+  typePath = "preview/"
+  distroURL = "https://github.com/Cascading/pattern/zipball/wip-1.0"
+}
+
+fetchLatest << {
+
+  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'pattern-src' ) )
+}
