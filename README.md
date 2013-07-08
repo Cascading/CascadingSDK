@@ -9,7 +9,7 @@ included in the package created by these build scripts.
 
 # Getting Started
 
-This SDK includes `binary`, `source`, `docs`, `thirdparty` and `tools` subdirectories.
+This SDK includes `binary`, `source`, `docs`, `preview`, `thirdparty` and `tools` subdirectories.
 
 
 ## Binary
@@ -26,6 +26,10 @@ any related API docs.
 ## Docs
 
 The `docs` subdirectory includes the Cascading User Guide, and any related tutorials.
+
+## Preview
+
+The `preview` subdirectory includes projects from the Cascading eco-system, that are not released yet. 
 
 ## Thirdparty
 
