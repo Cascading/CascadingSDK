@@ -69,6 +69,11 @@ task copyEnvD( type: Copy ) {
   into "${distDir}/etc/env.d"
 }
 
+task copyEMRScript(type: Copy){
+    from fileTree("etc/emr")
+    into distributionDir
+}
+
 copyEnv.doFirst() {
   mkdir "${distDir}/etc"
 
@@ -173,11 +178,6 @@ createArchiveLatest << {
 
   latestArchivePath = new File( distributionDir, 'latest.txt' )
   latestArchivePath.write( "http://${publishBucket}/${applicationGroup}/${majorVersion}/${releaseTar}" )
-}
-
-task copyEMRScript(type: Copy){
-    from fileTree("etc/emr")
-    into distributionDir
 }
 
 
