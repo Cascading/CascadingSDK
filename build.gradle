@@ -9,6 +9,7 @@ import org.apache.tools.ant.filters.ReplaceTokens
 import java.text.SimpleDateFormat
 
 import com.monochromeroad.gradle.plugin.aws.s3.S3Sync
+import com.monochromeroad.gradle.plugin.aws.s3.ACL
 
 if( project.properties[ 'teamcity' ] ) // make them system properties
   System.properties.putAll( project.properties[ 'teamcity' ] )
@@ -185,6 +186,8 @@ task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
 
   accessKey = System.properties[ 'publish.aws.accessId' ]
   secretKey = System.properties[ 'publish.aws.secretKey' ]
+
+  acl ACL.PublicRead
 
   def s3Bucket = System.properties[ 'publish.bucket' ] ?: "files.concurrentinc.com"
 
