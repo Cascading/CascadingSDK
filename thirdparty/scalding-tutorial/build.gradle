@@ -5,8 +5,8 @@
  */
 
 fetchLatest {
-  def version = "0.8.6"
   typePath = "thirdparty/source"
+  def version = "0.8.6"
   distroURL = "https://github.com/Cascading/scalding-tutorial/zipball/${version}"
 }
 

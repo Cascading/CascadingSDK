@@ -6,7 +6,8 @@
 
 fetchLatest {
   typePath = "preview/"
-  distroURL = "https://github.com/Cascading/pattern/zipball/wip-1.0"
+  def version = "wip-1.0"
+  distroURL = "https://github.com/Cascading/pattern/zipball/${version}"
 }
 
 fetchLatest << {
