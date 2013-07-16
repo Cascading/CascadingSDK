@@ -18,8 +18,6 @@
 #  limitations under the License.
    
 
-set -u
-
 # implemented as a function to no pollute the environment
 function discoverLein(){
 

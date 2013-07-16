@@ -17,8 +17,6 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
    
-set -u
-
 
 # implemented as a function to no pollute the environment
 function discoverScala(){
