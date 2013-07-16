@@ -2,14 +2,15 @@
 
 This project contains the build scripts for creating the Cascading SDK release.
 
-The SDK distribution, available online, includes Cascading 2.2 and any related projects in a single archive.
+The SDK distribution, available online, includes Cascading 2.2 and related projects in a single archive.
 
 Every project or extension included in this SDK has been tested independently before being downloaded and
 included in the package created by these build scripts.
 
 # Getting Started
 
-This SDK includes `binary`, `source`, `docs`, `preview`, `thirdparty` and `tools` subdirectories.
+This SDK includes `binary`, `source`, `docs`, `preview`, `thirdparty` and `tools` subdirectories. 
+The following paragraphs describe those subdirectories.
 
 
 ## Binary
@@ -29,7 +30,18 @@ The `docs` subdirectory includes the Cascading User Guide, and any related tutor
 
 ## Preview
 
-The `preview` subdirectory includes projects from the Cascading eco-system, that are not released yet. 
+The `preview` subdirectory includes projects from the Cascading eco-system, that are not released yet.
+Projects in the `preview` can change between versions of the SDK or move out of
+the this directory or dissapear. Please do not rely on them for production code.
+
+Currently the `preview` directory contains the source code of
+[`pattern`](http://www.cascading.org/pattern/) in the `preview/pattern-src`
+directory.
+
+### Pattern
+
+> Pattern is a Cascading library and framework for machine learning model scoring at
+> scale on Apache Hadoop.
 
 ## Thirdparty
 
@@ -40,12 +52,14 @@ are [scalding](http://github.com/twitter/scalding) and
 
 ### Scalding
 
-> Scalding is [Scala](http://www.scala-lang.org/) API for Cascadind developed by
+> Scalding is [Scala](http://www.scala-lang.org/) API for Cascading developed by
 > [twitter](http://twitter.com). 
 
-The SDK includes the source code of scalding as
-well as a ready to use tutorial project to get you started with scalding. You an
-find the source code in `thirdparty/source/scalding-src` and the tutorial in
+The SDK includes the source code of scalding as well as a ready to use tutorial
+project to get you started with scalding. 
+
+
+The scalding code is in `thirdparty/source/scalding-src` and the tutorial in
 `thirdparty/source/scalding-tutorial`. 
 
 **Note:** In order to follow the tutorial you have to have
@@ -57,9 +71,9 @@ find the source code in `thirdparty/source/scalding-src` and the tutorial in
 > Cascalog is fully-featured data processing and querying library
 > for [Clojure](http://clojure.org/) or Java.
 
-The SDK includes the source code of cascalog and a ready to go project for
-the cascalog tutorial. You find the source code in
-`thirdparty/source/cascalog-src` and the tutorial in `thirdparty/binary/cascalog-tutorial`.
+The SDK includes the source code of cascalog and a ready to go project for the
+cascalog tutorial. You find the source code in `thirdparty/source/cascalog-src`
+and the tutorial in `thirdparty/binary/cascalog-tutorial`.
 
 **Note:** In order to follow the cascalog tutorial you have to have
 [`leiningen 2`](http://leiningen.org/) installed. For more information see
@@ -73,6 +87,12 @@ The `tools` subdirectory includes a few prebuilt command line tools. To add them
  > export CASCADING_SDK_HOME=<sdk install path>
  > source $CASCADING_SDK_HOME/etc/setenv.sh
 ```
+
+**Note:** You might see a warning, that you don't have leiningen or sbt
+installed, when sourcing `setenv.sh` script. Having those tools installed, is
+only necessary, if you want to follow the `scalding` or `cascalog` tutorials,
+the rest of the SDK, does not rely on them.
+
 
 ## Downloading the latest SDK release
 
