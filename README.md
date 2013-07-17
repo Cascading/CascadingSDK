@@ -81,7 +81,7 @@ and the tutorial in `thirdparty/binary/cascalog-tutorial`.
 
 ## Tools
 
-The `tools` subdirectory includes a few prebuilt command line tools. To add them to your PATH, call:
+The `tools` subdirectory includes prebuilt command line tools. To add them to your PATH, call:
 
 ```bash
  > export CASCADING_SDK_HOME=<sdk install path>
@@ -92,6 +92,31 @@ The `tools` subdirectory includes a few prebuilt command line tools. To add them
 installed, when sourcing `setenv.sh` script. Having those tools installed, is
 only necessary, if you want to follow the `scalding` or `cascalog` tutorials,
 the rest of the SDK, does not rely on them.
+
+The tools you will find are `multitool`, `load`, `compatibility` and
+`lingual-client`
+
+### Multitool
+
+> Multitool provides a simple command line interface for building data
+> processing jobs. Think of this as grep, sed, and awk for Hadoop, which also
+> supports joins between multiple data-sets.
+
+
+
+### Lingual
+
+> Lingual is true SQL for Cascading and Apache Hadoop.
+> Lingual includes JDBC Drivers, SQL command shell, and a catalog manager for
+> creating schemas and tables.
+
+
+### Load
+
+> Load provides a simple command line interface for building high load cluster
+> jobs, based on Cascading.
+
+
 
 
 ## Downloading the latest SDK release
