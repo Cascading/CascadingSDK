@@ -27,20 +27,6 @@ function discoverScala(){
     then
         echo -n  "for scalding support, please install sbt from "
         echo     "http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html"
-    else
-        local VERSION_ARRAY=($(scala -version  2>&1)// /)
-        local FULL_SCALA_VERSION="${VERSION_ARRAY[4]}"
-        local IFS=\\. 
-        read -a VERSION_PARTS <<< "${FULL_SCALA_VERSION}"
-
-        local SCALA_VERSION="${VERSION_PARTS[0]}.${VERSION_PARTS[1]}" 
-
-        if [ "$SCALA_VERSION" != $WANTED_VERSION ]
-        then
-            echo -n "Your scala version $FULL_SCALA_VERSION will not work "
-            echo    "with scalding. Please install scala $WANTED_VERSION"
-        fi
-
     fi
 }
 
