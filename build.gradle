@@ -34,21 +34,15 @@ ext.distributionDir = "${buildDir}/distribution"
 ext.sourceBucket = System.getProperty("source.bucket")  ?: "files.concurrentinc.com"
 ext.docSourceBucket = System.getProperty("doc.source.bucket") ?: "docs.concurrentinc.com"
 
-configurations {
-  s3AntTask
-}
 
 buildscript {
   repositories {
     mavenCentral()
     mavenLocal()
-    mavenRepo name: 'conjars', url: 'http://conjars.org/repo'
-    // XXX put this back in, as soon as upstream has a new release
-    //mavenRepo name: 'monochromeroad', url: 'http://repository-monochromeroad.forge.cloudbees.com/release/'
+    mavenRepo name: 'monochromeroad', url: 'http://repository-monochromeroad.forge.cloudbees.com/release/'
   }
   dependencies {
-    /// XXX change back to original group id after new upstream release
-    classpath group: 'thirdparty', name: "gradle-aws-s3-sync", version: '0.5.1'
+    classpath group: 'com.monochromeroad.gradle', name: "gradle-aws-s3-sync", version: '0.5'
   }
 }
 
