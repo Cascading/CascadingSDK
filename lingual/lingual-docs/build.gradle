@@ -5,7 +5,7 @@
  */
 
 fetchLatest{
-  isDoc = true
+  isArchive = false
   typePath = "docs/lingual"
   distroURL = "http://dev.concurrentinc.com/lingual/1.0/index.html"
 }
