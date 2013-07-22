@@ -114,6 +114,7 @@ subprojects {
   task fetchLatest {
     ext.latestURL = null
     ext.distroURL = null
+    ext.isDoc = false
     ext.typePath = ''
 
     outputs.dir distDir
@@ -137,14 +138,18 @@ subprojects {
 
     def distroZip = new File( buildDir, distroURL.substring( distroURL.lastIndexOf( '/' ) ) )
 
-    ant.get( src: distroURL, dest: distroZip.absolutePath, skipexisting: true )
-
     ext.typeDir = new File( distDir, typePath )
     mkdir typeDir
 
+    if (isDoc)
+        ant.get( src: distroURL, dest: typeDir , skipexisting: true )
+    else
+        ant.get( src: distroURL, dest: distroZip.absolutePath, skipexisting: true )
+
+
     if( distroURL.endsWith( 'zip' ) || distroURL.contains( 'zipball' ) )
       ant.unzip( src: distroZip, dest: typeDir )
-    else
+    else if( distroURL.endsWith( 'tgz' ) || distroURL.endsWith( 'tar.gz' ) )
       ant.untar( src: distroZip, dest: typeDir, compression: 'gzip' )
   }
 

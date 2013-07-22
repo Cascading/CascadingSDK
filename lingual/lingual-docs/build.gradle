@@ -1,0 +1,11 @@
+/*
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+
+fetchLatest{
+  isDoc = true
+  typePath = "docs/lingual"
+  distroURL = "http://dev.concurrentinc.com/lingual/1.0/index.html"
+}
