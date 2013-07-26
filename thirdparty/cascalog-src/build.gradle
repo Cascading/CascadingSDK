@@ -12,5 +12,5 @@ fetchLatest {
 
 fetchLatest << {
 
-  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'scalding-src' ) )
+  typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'cascalog-src' ) )
 }
