@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "thirdparty/source"
-  def version = "1.10.1"
+  def version = "1.10.2"
   distroURL = "https://github.com/nathanmarz/cascalog/zipball/${version}"
 }
 
