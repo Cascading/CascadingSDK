@@ -7,5 +7,5 @@
 fetchLatest{
   isArchive = false
   typePath = "docs/lingual"
-  distroURL = "http://dev.concurrentinc.com/lingual/1.0/index.html"
+  distroURL = "http://docs.cascading.org/lingual/1.0/index.html"
 }
