@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+import org.apache.tools.ant.filters.ReplaceTokens
+
+fetchLatest {
+  typePath = "docs/impatient"
+  distroURL = "http://docs.cascading.org/impatient/impatient.zip"
+}
+
+fetchLatest << {
+
+  new File( typeDir, 'html' ).renameTo( new File( typeDir, 'impatient-docs' ) )
+}
+
+distCopy {
+
+  from( distDir ) {
+    include '**/*.html'
+    include '**/*.log'
+  }
+}

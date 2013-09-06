@@ -14,6 +14,9 @@ include 'logparser'
 include 'wordcount'
 include 'recommender'
 include 'compatibility'
+include 'impatient/impatient-docs'
+include 'impatient/impatient-src'
+
 include 'lingual/lingual-client'
 include 'lingual/lingual-docs'
 

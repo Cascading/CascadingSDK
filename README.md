@@ -26,11 +26,13 @@ any related API docs.
 
 ## Docs
 
-The `docs` subdirectory includes the Cascading User Guide, and any related tutorials.
+The `docs` subdirectory includes the Cascading User Guide, the linugal
+documentation, and the source and docs of the tutorial series ["Cascading for
+the Impatient"](http://docs.cascading.org/impatient/).
 
 ## Preview
 
-The `preview` subdirectory includes projects from the Cascading eco-system, that are not released yet.
+The `preview` subdirectory includes projects from the Cascading eco-system, that are not yet released.
 Projects in the `preview` can change between versions of the SDK or move out of
 the this directory or dissapear. Please do not rely on them for production code.
 
@@ -147,7 +149,7 @@ This bootstrap action has the following arguments:
 
 When using a bootstrap action with the EMR ruby client, remember to use commas instead of spaces between arguments:
 
-    --bootstrap-action s3://files.cascading.org/sdk/2.0/install-cascading-sdk.sh --args "--tmpdir,/tmp"
+    --bootstrap-action s3://files.cascading.org/sdk/2.2/install-cascading-sdk.sh --args "--tmpdir,/tmp"
 
 # Other
 
