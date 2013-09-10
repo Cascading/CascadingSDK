@@ -8,7 +8,7 @@ set -e -x
 #  --latest - url to text file referencing the latest version
 #  --no-bash - do not update .bashrc
 
-LATEST=http://files.cascading.org/sdk/2.2/latest.txt
+LATEST=http://@SOURCE_BUCKET@/sdk/2.2/latest.txt
 
 case "`uname`" in
   Darwin)

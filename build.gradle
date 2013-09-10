@@ -34,6 +34,7 @@ ext.distributionDir = "${buildDir}/distribution"
 ext.sourceBucket = System.getProperty("source.bucket")  ?: "files.concurrentinc.com"
 ext.docSourceBucket = System.getProperty("doc.source.bucket") ?: "docs.concurrentinc.com"
 
+ext.publishBucket = System.properties[ 'publish.bucket' ] ?:  "files.concurrentinc.com"
 
 buildscript {
   repositories {
@@ -67,6 +68,7 @@ task copyEnvD( type: Copy ) {
 task copyEMRScript(type: Copy){
     from fileTree("etc/emr")
     into distributionDir
+    filter( ReplaceTokens, tokens: [ 'SOURCE_BUCKET' : publishBucket ] )
 }
 
 copyEnv.doFirst() {
@@ -171,7 +173,6 @@ task createArchiveLatest( dependsOn: packageDist ) {
 
 createArchiveLatest << {
 
-  def publishBucket = System.properties[ 'publish.bucket' ] ?:  "files.concurrentinc.com"
   def releaseTar = packageDist.archiveName
 
   assert publishBucket
@@ -188,7 +189,7 @@ task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
 
   acl ACL.PublicRead
 
-  def s3Bucket = System.properties[ 'publish.bucket' ] ?: "files.concurrentinc.com"
+  def s3Bucket = publishBucket
 
   // XXX this should probably be enabled, but it is off for now to ease development
   //assert accessKey
