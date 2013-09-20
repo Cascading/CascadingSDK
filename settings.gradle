@@ -27,3 +27,4 @@ include 'thirdparty/scalding-tutorial'
 include 'thirdparty/cascalog-tutorial'
 
 include 'preview/pattern-src'
+include 'preview/pattern-tutorial'

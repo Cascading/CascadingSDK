@@ -38,7 +38,9 @@ the this directory or dissapear. Please do not rely on them for production code.
 
 Currently the `preview` directory contains the source code of
 [`pattern`](http://www.cascading.org/pattern/) in the `preview/pattern-src`
-directory.
+directory and the [pattern
+turial](http://docs.cascading.org/tutorials/pattern/) in
+`preview/pattern-tutorial`.
 
 ### Pattern
 
