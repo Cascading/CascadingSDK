@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "thirdparty/binary"
-  latestURL = "http://files.cascading.org/thirdparty/cascalog-tutorial-standalone/${rootProject.majorVersion}/latest.txt"
+  latestURL = "http://files.concurrentinc.com/thirdparty/cascalog-tutorial-standalone/${rootProject.majorVersion}/latest.txt"
 }
 
 fetchLatest << {
