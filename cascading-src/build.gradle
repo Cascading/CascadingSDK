@@ -7,8 +7,7 @@
 fetchLatest {
   typePath = "source"
   // TODO set this to the right thing
-  //distroURL = "https://github.com/Cascading/cascading/zipball/${rootProject.majorVersion}"
-  distroURL = "https://github.com/cwensel/cascading/zipball/${rootProject.majorVersion}"
+  distroURL = "https://github.com/Cascading/cascading/zipball/${rootProject.majorVersion}"
 }
 
 fetchLatest << {
