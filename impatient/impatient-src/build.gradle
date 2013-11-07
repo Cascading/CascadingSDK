@@ -5,7 +5,7 @@
  */
 
 fetchLatest {
-  typePath = "docs/impatient"
+  typePath = "docs/tutorials/cascading-for-the-impatient"
   distroURL = "https://github.com/Cascading/Impatient/archive/master.zip"
 }
 

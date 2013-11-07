@@ -6,6 +6,6 @@
 
 fetchLatest{
   isArchive = false
-  typePath = "docs/lingual"
+  typePath = "docs/lingual-userguide"
   distroURL = "http://docs.cascading.org/lingual/1.0/index.html"
 }

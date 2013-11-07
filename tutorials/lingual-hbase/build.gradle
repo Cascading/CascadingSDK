@@ -6,19 +6,19 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 fetchLatest {
-  typePath = "docs"
-  distroURL = "http://${rootProject.docSourceBucket}/cascading/${rootProject.majorVersion}/userguide/html/userguide.zip"
+  typePath = "docs/tutorials"
+  distroURL = "http://docs.cascading.org/tutorials/lingual-hbase/lingual-hbase.zip"
 }
 
 fetchLatest << {
 
-  new File( typeDir, 'html' ).renameTo( new File( typeDir, 'cascading-userguide' ) )
+  new File( typeDir, 'lingual-hbase' ).renameTo( new File( typeDir, 'lingual-hbase-tutorial' ) )
 }
 
 distCopy {
 
   from( distDir ) {
     include '**/*.html'
-    filter( ReplaceTokens, tokens: [ ANALYTICS: '' ] )
+    include '**/*.log'
   }
 }

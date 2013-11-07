@@ -26,9 +26,10 @@ any related API docs.
 
 ## Docs
 
-The `docs` subdirectory includes the Cascading User Guide, the linugal
-documentation, and the source and docs of the tutorial series ["Cascading for
-the Impatient"](http://docs.cascading.org/impatient/).
+The `docs` subdirectory includes the Cascading User Guide, the Lingual User
+Guide, the source and docs of the tutorial series ["Cascading for
+the Impatient"](http://docs.cascading.org/impatient/) and the [Lingual HBase
+tutorial](http://docs.cascading.org/tutorials/lingual-hbase/)
 
 ## Preview
 

@@ -6,14 +6,10 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 fetchLatest {
-  typePath = "docs/impatient"
+  typePath = "docs/tutorials/cascading-for-the-impatient"
   distroURL = "http://docs.cascading.org/impatient/impatient.zip"
 }
 
-fetchLatest << {
-
-  new File( typeDir, 'html' ).renameTo( new File( typeDir, 'impatient-docs' ) )
-}
 
 distCopy {
 

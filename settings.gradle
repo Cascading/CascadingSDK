@@ -28,3 +28,5 @@ include 'thirdparty/cascalog-tutorial'
 
 include 'preview/pattern-src'
 include 'preview/pattern-tutorial'
+
+include 'tutorials/lingual-hbase'
