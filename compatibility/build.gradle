@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "tools"
-  distroURL = "https://github.com/Cascading/cascading.compatibility/zipball/${rootProject.majorVersion}"
+  distroURL = "https://github.com/Cascading/cascading.compatibility/zipball/wip-${rootProject.majorVersion}"
 }
 
 fetchLatest << {
