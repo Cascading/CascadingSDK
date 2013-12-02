@@ -10,7 +10,9 @@ set -e -x
 #  --driven-api-key - api key to use with driven
 #  --driven-host - url of the driven instance
 
-LATEST=http://@SOURCE_BUCKET@/sdk/2.2/latest.txt
+CASCADING_VERSION="2.5"
+
+LATEST="http://@SOURCE_BUCKET@/sdk/$CASCADING_VERSION/latest.txt"
 
 case "`uname`" in
   Darwin)
@@ -25,8 +27,6 @@ INSTALL_SCREEN=y
 UPDATE_BASH=y
 DRIVEN_API_KEY=""
 DRIVEN_HOST=""
-
-CASCADING_VERSION="2.2"
 
 IS_MASTER=true
 if [ -f /mnt/var/lib/info/instance.json ]
@@ -132,4 +132,12 @@ fi
 
 if [ "$IS_MASTER" = "true" ]; then
   [ -n "$INSTALL_SCREEN" ] && sudo apt-get --force-yes install screen -y
+fi
+
+export CASCADING_CONFIG_FILE=$HOME/.cascading
+HADOOP_MAJOR_VERSION=`hadoop version | grep "Hadoop" | awk '{print $2 }' | awk -F\. '{print $1}'`
+if [[ "2" == $HADOOP_MAJOR_VERSION ]]; then
+    echo 'CASCADING_PLATFORM=hadoop2-mr1' > $CASCADING_CONFIG_FILE
+else
+    echo 'CASCADING_PLATFORM=hadoop' > $CASCADING_CONFIG_FILE
 fi
