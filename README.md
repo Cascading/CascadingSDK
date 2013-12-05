@@ -1,8 +1,8 @@
-# Cascading 2.2 SDK
+# Cascading 2.5 SDK
 
 This project contains the build scripts for creating the Cascading SDK release.
 
-The SDK distribution, available online, includes Cascading 2.2 and related projects in a single archive.
+The SDK distribution, available online, includes Cascading 2.5 and related projects in a single archive.
 
 Every project or extension included in this SDK has been tested independently before being downloaded and
 included in the package created by these build scripts.
@@ -126,22 +126,19 @@ The tools you will find are `multitool`, `load`, `compatibility` and
 > Load provides a simple command line interface for building high load cluster
 > jobs, based on Cascading.
 
-
-
-
 ## Downloading the latest SDK release
 
 To download a current copy of the Cascading SDK release, execute the following command:
 
 ```bash
- > wget -i http://files.cascading.org/sdk/2.2/latest.txt
+ > wget -i http://files.cascading.org/sdk/2.5/latest.txt
 ```
 
 ## Installing on AWS Elastic MapReduce
 
 To pre-install the SDK on a new instance of AWS EMR, use the following bootstrap action:
 
-    s3://files.cascading.org/sdk/2.2/install-cascading-sdk.sh
+    s3://files.cascading.org/sdk/2.5/install-cascading-sdk.sh
 
 This will download the latest SDK, unarchive it into the default user home directory, and add any tools
 to the PATH.
@@ -157,7 +154,7 @@ This bootstrap action has the following arguments:
 
 When using a bootstrap action with the EMR ruby client, remember to use commas instead of spaces between arguments:
 
-    --bootstrap-action s3://files.cascading.org/sdk/2.2/install-cascading-sdk.sh --args "--tmpdir,/tmp"
+    --bootstrap-action s3://files.cascading.org/sdk/2.5/install-cascading-sdk.sh --args "--tmpdir,/tmp"
 
 # Other
 
