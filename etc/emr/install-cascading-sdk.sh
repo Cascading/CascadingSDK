@@ -137,7 +137,7 @@ fi
 export CASCADING_CONFIG_FILE=$HOME/.cascading
 HADOOP_MAJOR_VERSION=`hadoop version | grep "Hadoop" | awk '{print $2 }' | awk -F\. '{print $1}'`
 if [[ "2" == $HADOOP_MAJOR_VERSION ]]; then
-    echo 'CASCADING_PLATFORM=hadoop2-mr1' > $CASCADING_CONFIG_FILE
+    echo 'cascading.platform.name=hadoop2-mr1' > $CASCADING_CONFIG_FILE
 else
-    echo 'CASCADING_PLATFORM=hadoop' > $CASCADING_CONFIG_FILE
+    echo 'cascading.platform.name=hadoop' > $CASCADING_CONFIG_FILE
 fi
