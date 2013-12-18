@@ -89,7 +89,7 @@ copyEnv.doFirst() {
   filter( ReplaceTokens, tokens: [ BIN_PATHS: pathString ] )
 }
 
-task copySupport( type: Copy, dependsOn: [copyEnv] ) {
+task copySupport( type: Copy, dependsOn: copyEnv ) {
   from 'README.md'
   into distDir
 }

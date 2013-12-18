@@ -21,15 +21,16 @@ their dependencies and the javadoc.
 
 ## Source
 
-The `source` subdirectory includes the latest release of Cascading and many sample applications and
-any related API docs.
+The `source` subdirectory includes the latest release of Cascading and many sample applications and any related API
+docs. It also contains a template project for creating a Cascading application.
 
 ## Docs
 
-The `docs` subdirectory includes the Cascading User Guide, the Lingual User
-Guide, the source and docs of the tutorial series ["Cascading for
-the Impatient"](http://docs.cascading.org/impatient/) and the [Lingual HBase
-tutorial](http://docs.cascading.org/tutorials/lingual-hbase/)
+The `docs` subdirectory includes the Cascading User Guide, the Lingual User Guide, the source and docs of the tutorial
+series ["Cascading for the Impatient"](http://docs.cascading.org/impatient/), the [Lingual HBase
+tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) and the [Lingual Redshift
+tutorial](http://docs.cascading.org/tutorials/lingual-redshift/).
+
 
 ## Driven
 
@@ -38,14 +39,12 @@ The `driven` directory contains an installer for the [Driven plugin](http://casc
 
 ## Preview
 
-The `preview` subdirectory includes projects from the Cascading eco-system, that are not yet released.
-Projects in the `preview` can change between versions of the SDK or move out of
-the this directory or dissapear. Please do not rely on them for production code.
+The `preview` subdirectory includes projects from the Cascading eco-system, that are not yet released.  Projects in the
+`preview` can change between versions of the SDK or move out of the this directory or dissapear. Please do not rely on
+them for production code.
 
-Currently the `preview` directory contains the source code of
-[`pattern`](http://www.cascading.org/pattern/) in the `preview/pattern-src`
-directory and the [pattern
-turial](http://docs.cascading.org/tutorials/pattern/) in
+Currently the `preview` directory contains the source code of [`pattern`](http://www.cascading.org/pattern/) in the
+`preview/pattern-src` directory and the [pattern turial](http://docs.cascading.org/tutorials/pattern/) in
 `preview/pattern-tutorial`.
 
 ### Pattern
@@ -98,11 +97,6 @@ The `tools` subdirectory includes prebuilt command line tools. To add them to yo
  > source $CASCADING_SDK_HOME/etc/setenv.sh
 ```
 
-**Note:** You might see a warning, that you don't have leiningen or sbt
-installed, when sourcing `setenv.sh` script. Having those tools installed, is
-only necessary, if you want to follow the `scalding` or `cascalog` tutorials,
-the rest of the SDK, does not rely on them.
-
 The tools you will find are `multitool`, `load`, `compatibility` and
 `lingual-client`
 
@@ -111,7 +105,6 @@ The tools you will find are `multitool`, `load`, `compatibility` and
 > Multitool provides a simple command line interface for building data
 > processing jobs. Think of this as grep, sed, and awk for Hadoop, which also
 > supports joins between multiple data-sets.
-
 
 
 ### Lingual

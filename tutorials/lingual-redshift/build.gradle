@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+import org.apache.tools.ant.filters.ReplaceTokens
+
+fetchLatest {
+  typePath = "docs/tutorials"
+  distroURL = "http://docs.cascading.org/tutorials/lingual-redshift/lingual-redshift.zip"
+}
+
+fetchLatest << {
+
+  new File( typeDir, 'lingual-redshift' ).renameTo( new File( typeDir, 'lingual-redshift-tutorial' ) )
+}
+
+distCopy {
+
+  from( distDir ) {
+    include '**/*.html'
+    include '**/*.log'
+  }
+}

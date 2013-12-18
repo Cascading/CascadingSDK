@@ -30,3 +30,6 @@ include 'preview/pattern-src'
 include 'preview/pattern-tutorial'
 
 include 'tutorials/lingual-hbase'
+include 'tutorials/lingual-redshift'
+
+include 'project-template'

@@ -9,4 +9,3 @@ if [ ! -d $HOME/.cascading/.driven-plugin  ]; then
     echo -e "For more information read $CASCADING_SDK_HOME/driven/README.md or go to http://cascading.io/"
     echo -e "-------------------------------------------------------------------------------------"
 fi
-
