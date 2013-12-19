@@ -31,5 +31,7 @@ include 'preview/pattern-tutorial'
 
 include 'tutorials/lingual-hbase'
 include 'tutorials/lingual-redshift'
+include 'tutorials/lingual-oracle'
+
 
 include 'project-template'
