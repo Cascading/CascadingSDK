@@ -134,7 +134,9 @@ if [ "$IS_MASTER" = "true" ]; then
   [ -n "$INSTALL_SCREEN" ] && sudo apt-get --force-yes install screen -y
 fi
 
-export CASCADING_CONFIG_FILE=$HOME/.cascading
+
+mkdir $HOME/.cascading
+export CASCADING_CONFIG_FILE=$HOME/.cascading/default.properties
 HADOOP_MAJOR_VERSION=`hadoop version | grep "Hadoop" | awk '{print $2 }' | awk -F\. '{print $1}'`
 if [[ "2" == $HADOOP_MAJOR_VERSION ]]; then
     echo 'cascading.platform.name=hadoop2-mr1' > $CASCADING_CONFIG_FILE
