@@ -57,12 +57,9 @@ allprojects {
 
 task copyEnv( type: Copy ) {
   from 'etc/setenv.sh'
+  from 'etc/get-driven.sh'
+  fileMode 0755
   into "${distDir}/etc"
-}
-
-task copyEnvD( type: Copy ) {
-  from 'etc/env.d'
-  into "${distDir}/etc/env.d"
 }
 
 task copyEMRScript(type: Copy){
@@ -88,7 +85,7 @@ copyEnv.doFirst() {
   filter( ReplaceTokens, tokens: [ BIN_PATHS: pathString ] )
 }
 
-task copySupport( type: Copy, dependsOn: [copyEnv, copyEnvD] ) {
+task copySupport( type: Copy, dependsOn: [copyEnv] ) {
   from 'README.md'
   into distDir
 }
