@@ -1,7 +1,7 @@
 
 [ -z "${CASCADING_SDK_HOME}" ] && echo "CASCADING_SDK_HOME must be set" && return
 
-PATH=${CASCADING_SDK_HOME}/tools/multitool-20131119/bin:${CASCADING_SDK_HOME}/tools/load-20131119/bin:${CASCADING_SDK_HOME}/tools/lingual-client/bin:$PATH
+PATH=@BIN_PATHS@:$PATH
 
 if [ ! -d $HOME/.cascading/.driven-plugin  ]; then
     echo -e "\n-------------------------------------------------------------------------------------"
