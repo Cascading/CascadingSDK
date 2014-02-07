@@ -55,9 +55,13 @@ allprojects {
   }
 }
 
-task copyEnv( type: Copy ) {
+task copyDriven( type: Copy ) {
+  from 'driven'
+  into "${distDir}/driven"
+}
+
+task copyEnv( type: Copy, dependsOn: copyDriven) {
   from 'etc/setenv.sh'
-  from 'etc/get-driven.sh'
   fileMode 0755
   into "${distDir}/etc"
 }

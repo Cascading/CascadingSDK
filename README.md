@@ -31,6 +31,11 @@ Guide, the source and docs of the tutorial series ["Cascading for
 the Impatient"](http://docs.cascading.org/impatient/) and the [Lingual HBase
 tutorial](http://docs.cascading.org/tutorials/lingual-hbase/)
 
+## Driven
+
+The `driven` directory contains an installer for the [Driven plugin](http://cascading.io/driven) for Cascading. Type
+`install-driven-plugin` to install the latest version.
+
 ## Preview
 
 The `preview` subdirectory includes projects from the Cascading eco-system, that are not yet released.
