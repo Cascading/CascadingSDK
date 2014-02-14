@@ -7,6 +7,8 @@ set -e -x
 #  --no-screen - do not install screen, screen is installed by default on the master as a convenience
 #  --latest - url to text file referencing the latest version
 #  --no-bash - do not update .bashrc
+#  --driven-api-key - api key to use with driven
+#  --driven-host - url of the driven instance
 
 LATEST=http://@SOURCE_BUCKET@/sdk/2.2/latest.txt
 
@@ -21,6 +23,8 @@ INSTALL_ON_SLAVES=false
 BASH_PROFILE=.bashrc
 INSTALL_SCREEN=y
 UPDATE_BASH=y
+DRIVEN_API_KEY=""
+DRIVEN_HOST=""
 
 CASCADING_VERSION="2.2"
 
@@ -58,6 +62,14 @@ do
     --tmpdir)
       shift
       TMPDIR=$1
+      ;;
+    --driven-api-key)
+      shift
+      DRIVEN_API_KEY=$1
+      ;;
+    --driven-host)
+      shift
+      DRIVEN_HOST=$1
       ;;
     --no-screen)
       INSTALL_SCREEN=
@@ -110,6 +122,12 @@ export CASCADING_SDK_HOME=$SDK_HOME
 # add tools to PATH
 source $SDK_HOME/etc/setenv.sh
 EOF
+fi
+
+if [ -n $DRIVEN_API_KEY ]; then
+    export DRIVEN_API_KEY
+    export DRIVEN_HOST
+    $SDK_HOME/driven/bin/install-driven-plugin
 fi
 
 if [ "$IS_MASTER" = "true" ]; then
