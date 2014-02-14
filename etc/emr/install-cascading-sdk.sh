@@ -124,7 +124,7 @@ source $SDK_HOME/etc/setenv.sh
 EOF
 fi
 
-if [ -n $DRIVEN_API_KEY ]; then
+if [ ! -z $DRIVEN_API_KEY ]; then
     export DRIVEN_API_KEY
     export DRIVEN_HOST
     $SDK_HOME/driven/bin/install-driven-plugin
