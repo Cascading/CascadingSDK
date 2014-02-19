@@ -21,4 +21,9 @@ echo "installing driven into $CASCADING_DIR/.driven-plugin"
 
 export DRIVEN_API_KEY
 export DRIVEN_HOST
-exec bash <(wget -qO- $INSTALLER_URL) --host $DRIVEN_HOST --no-screen --user-home $CASCADING_DIR --api-key $DRIVEN_API_KEY
+
+if [ ! -z $DRIVEN_API_KEY ]; then
+    exec bash <(wget -qO- $INSTALLER_URL) --host $DRIVEN_HOST --no-screen --user-home $CASCADING_DIR --api-key $DRIVEN_API_KEY
+else
+    exec bash <(wget -qO- $INSTALLER_URL) --host $DRIVEN_HOST --no-screen --user-home $CASCADING_DIR
+fi
