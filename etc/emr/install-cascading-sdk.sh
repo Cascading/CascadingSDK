@@ -127,6 +127,7 @@ fi
 if [ ! -z $DRIVEN_API_KEY ]; then
     export DRIVEN_API_KEY
     export DRIVEN_HOST
+    export HOME=$USER_HOME
     $SDK_HOME/driven/bin/install-driven-plugin
 fi
 
@@ -143,7 +144,7 @@ if [ "$IS_MASTER" = "true" ]; then
 fi
 
 # configure the default platform
-CASCADING_DIR=$HOME/.cascading
+CASCADING_DIR=$USER_HOME/.cascading
 
 if [ ! -d $CASCADING_DIR ]; then
   mkdir $CASCADING_DIR
