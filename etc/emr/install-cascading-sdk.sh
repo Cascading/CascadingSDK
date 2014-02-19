@@ -35,7 +35,7 @@ then
   USER_HOME=/home/hadoop
 fi
 
-[ -n $TMPDIR ] && TMPDIR=/tmp
+[ -n $TMPDIR ] && TMPDIR=/tmp/ccsdk
 
 error_msg () # msg
 {
