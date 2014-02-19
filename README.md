@@ -9,7 +9,7 @@ included in the package created by these build scripts.
 
 # Getting Started
 
-This SDK includes `binary`, `source`, `docs`, `preview`, `thirdparty` and `tools` subdirectories. 
+This SDK includes `binary`, `source`, `docs`, `preview`, `thirdparty` and `tools` subdirectories.
 The following paragraphs describe those subdirectories.
 
 
@@ -62,14 +62,14 @@ are [scalding](http://github.com/twitter/scalding) and
 ### Scalding
 
 > Scalding is [Scala](http://www.scala-lang.org/) API for Cascading developed by
-> [twitter](http://twitter.com). 
+> [twitter](http://twitter.com).
 
 The SDK includes the source code of scalding as well as a ready to use tutorial
-project to get you started with scalding. 
+project to get you started with scalding.
 
 
 The scalding code is in `thirdparty/source/scalding-src` and the tutorial in
-`thirdparty/source/scalding-tutorial`. 
+`thirdparty/source/scalding-tutorial`.
 
 **Note:** In order to follow the tutorial you have to have
 [`SBT`](http://www.scala-sbt.org/) installed. For more information see
@@ -127,6 +127,17 @@ To download a current copy of the Cascading SDK release, execute the following c
  > wget -i http://files.cascading.org/sdk/2.5/latest.txt
 ```
 
+## Platform selection
+
+Cascading 2.5 supports 3 platforms: `local`, `hadoop`, and `hadoop2-mr1`. The easiest way to make all tools in the SDK
+use the same platform is by creating a properties file in your home directory.
+
+```bash
+ > mkdir $HOME/.cascading && "echo cascading.platform.name=<insert-platform-here>" >> $HOME/.cascading/default.properties
+```
+
+All tools support overwriting this platform selection via command line switches if necessary.
+
 ## Installing on AWS Elastic MapReduce
 
 To pre-install the SDK on a new instance of AWS EMR, use the following bootstrap action:
@@ -144,10 +155,19 @@ This bootstrap action has the following arguments:
     #  --no-screen - do not install screen, screen is installed by default on the master as a convenience
     #  --latest - url to text file referencing the latest version
     #  --no-bash - do not update .bashrc
+    #  --driven-api-key - api key to use with driven
+    #  --driven-host - url of the driven instance
 
 When using a bootstrap action with the EMR ruby client, remember to use commas instead of spaces between arguments:
 
     --bootstrap-action s3://files.cascading.org/sdk/2.5/install-cascading-sdk.sh --args "--tmpdir,/tmp"
+
+If you pass an API key for [Driven](http://cascading.io/driven) to the bootstrap action the driven plugin will
+automatically be installed on EMR. If you don't pass it, you can install the driven plugin later by running
+`install-driven-plugin`.
+
+The boostrap action will detect if your cluster is based on Hadoop 1.x or 2.x and will set the Cascading platform
+accordingly.
 
 # Other
 
@@ -177,7 +197,7 @@ This project is also available on GitHub at https://github.com/Cascading/cascadi
 Please run the Load application on a given cluster with the following switches:
 
 ```bash
-  > hadoop jar load-<release-date>.jar --certify-tests -I input -O output -W working
+  > load --certify-tests -I input -O output -W working
 ```
 
 This will execute a set of preconfigured work loads to verify any standard Cascading application can run at scale.
