@@ -142,9 +142,13 @@ if [ "$IS_MASTER" = "true" ]; then
   [ -n "$INSTALL_SCREEN" ] && $SCREEN_INSTALL_COMMAND
 fi
 
+# configure the default platform
+CASCADING_DIR=$HOME/.cascading
 
-mkdir $HOME/.cascading
-export CASCADING_CONFIG_FILE=$HOME/.cascading/default.properties
+if [ ! -d $CASCADING_DIR ]; then
+  mkdir $CASCADING_DIR
+fi
+export CASCADING_CONFIG_FILE=$CASCADING_DIR/default.properties
 
 HADOOP_MAJOR_VERSION=`hadoop version | grep "Hadoop" | awk '{print $2 }' | awk -F\. '{print $1}'`
 
