@@ -40,7 +40,7 @@ buildscript {
   repositories {
     mavenCentral()
     mavenLocal()
-    mavenRepo name: 'monochromeroad', url: 'http://repository-monochromeroad.forge.cloudbees.com/release/'
+    maven{ url 'http://repository-monochromeroad.forge.cloudbees.com/release/' }
   }
   dependencies {
     classpath group: 'com.monochromeroad.gradle', name: "gradle-aws-s3-sync", version: '0.5'
@@ -51,7 +51,7 @@ allprojects {
   repositories {
     mavenLocal()
     mavenCentral()
-    mavenRepo name: 'conjars', url: 'http://conjars.org/repo/'
+    maven{ url 'http://conjars.org/repo/' }
   }
 }
 
@@ -62,7 +62,6 @@ task copyDriven( type: Copy ) {
 
 task copyEnv( type: Copy, dependsOn: copyDriven) {
   from 'etc/setenv.sh'
-  from 'etc/get-driven.sh'
   fileMode 0755
   into "${distDir}/etc"
 }

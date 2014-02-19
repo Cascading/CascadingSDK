@@ -130,16 +130,26 @@ if [ ! -z $DRIVEN_API_KEY ]; then
     $SDK_HOME/driven/bin/install-driven-plugin
 fi
 
+
+# emr can be based on debian or amazon linux (fedora)
+SCREEN_INSTALL_COMMAND="sudo apt-get --force-yes install screen -y"
+
+if [ ! -z `which yum`  ]; then
+    SCREEN_INSTALL_COMMAND="sudo yum -y install screen"
+fi
+
 if [ "$IS_MASTER" = "true" ]; then
-  [ -n "$INSTALL_SCREEN" ] && sudo apt-get --force-yes install screen -y
+  [ -n "$INSTALL_SCREEN" ] && $SCREEN_INSTALL_COMMAND
 fi
 
 
 mkdir $HOME/.cascading
 export CASCADING_CONFIG_FILE=$HOME/.cascading/default.properties
+
 HADOOP_MAJOR_VERSION=`hadoop version | grep "Hadoop" | awk '{print $2 }' | awk -F\. '{print $1}'`
+
 if [[ "2" == $HADOOP_MAJOR_VERSION ]]; then
-    echo 'cascading.platform.name=hadoop2-mr1' > $CASCADING_CONFIG_FILE
+    echo 'cascading.platform.name=hadoop2-mr1' >> $CASCADING_CONFIG_FILE
 else
-    echo 'cascading.platform.name=hadoop' > $CASCADING_CONFIG_FILE
+    echo 'cascading.platform.name=hadoop' >> $CASCADING_CONFIG_FILE
 fi
