@@ -41,6 +41,7 @@ buildscript {
     mavenCentral()
     mavenLocal()
     maven{ url 'http://repository-monochromeroad.forge.cloudbees.com/release/' }
+    maven{ url 'http://conjars.org/repo/' }
   }
   dependencies {
     classpath group: 'com.monochromeroad.gradle', name: "gradle-aws-s3-sync", version: '0.5'
