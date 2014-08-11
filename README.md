@@ -133,7 +133,7 @@ Cascading 2.5 supports 3 platforms: `local`, `hadoop`, and `hadoop2-mr1`. The ea
 use the same platform is by creating a properties file in your home directory.
 
 ```bash
- > mkdir $HOME/.cascading && "echo cascading.platform.name=<insert-platform-here>" >> $HOME/.cascading/default.properties
+ > mkdir $HOME/.cascading && echo "cascading.platform.name=<insert-platform-here>" >> $HOME/.cascading/default.properties
 ```
 
 All tools support overwriting this platform selection via command line switches if necessary.
