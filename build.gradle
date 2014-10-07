@@ -148,13 +148,13 @@ subprojects {
     if (isArchive)
         ant.get( src: distroURL, dest: distroZip.absolutePath, skipexisting: true )
     else
-        ant.get( src: distroURL, dest: typeDir , skipexisting: true )
+        ant.get( src: distroURL, dest: typeDir, skipexisting: true )
 
 
     if( distroURL.endsWith( 'zip' ) || distroURL.contains( 'zipball' ) )
       ant.unzip( src: distroZip, dest: typeDir )
-    else if( distroURL.endsWith( 'tgz' ) || distroURL.endsWith( 'tar.gz' ) )
-      ant.untar( src: distroZip, dest: typeDir, compression: 'gzip' )
+    else if( distroURL.endsWith( 'tgz' ) || distroURL.endsWith( 'tar.gz' ) || distroURL.contains( 'tarball' ))
+      nativeUntar( distroZip,  typeDir )
   }
 
   task distCopy( type: Copy, dependsOn: fetchLatest ) {
@@ -165,6 +165,14 @@ subprojects {
     rootProject.tasks[ 'copyEnv' ].dependsOn << distCopy
   }
 }
+
+// we shell out to tar to preserve symlinks from the tarballs.
+def nativeUntar( src, dest ) {
+    def command = "tar xf ${src} -C ${dest} "
+    def proc = command.execute()
+    proc.waitFor()
+}
+
 
 // publishing code
 
@@ -197,7 +205,7 @@ task s3Upload(type: S3Sync,  dependsOn: [copyEMRScript, createArchiveLatest] ){
   //assert accessKey
   //assert secretKey
   //assert s3Bucket
-  
+
   keepFiles = true
 
   configFile = "${rootProject.projectDir}/etc/synchronizer.properties"

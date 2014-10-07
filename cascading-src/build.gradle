@@ -7,10 +7,9 @@
 fetchLatest {
   typePath = "source"
   // TODO set this to the right thing
-  distroURL = "https://github.com/cwensel/cascading/zipball/wip-${rootProject.majorVersion}"
+  distroURL = "https://github.com/cwensel/cascading/tarball/wip-${rootProject.majorVersion}"
 }
 
 fetchLatest << {
-
   typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'cascading-src' ) )
 }
