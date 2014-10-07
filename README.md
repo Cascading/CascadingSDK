@@ -30,7 +30,7 @@ The `docs` subdirectory includes the Cascading User Guide, the Lingual User Guid
 series ["Cascading for the Impatient"](http://docs.cascading.org/impatient/), the [Lingual HBase
 tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) the [Cascading Redshift
 tutorial](http://docs.cascading.org/tutorials/cascading-redshift/), the [Cascading Teradata
-tutorial](http://docs.cascading.org/tutorials/cascading-teradata/) and a [Patter
+tutorial](http://docs.cascading.org/tutorials/cascading-teradata/) and a [Pattern
 tutorial](docs.cascading.org/tutorials/pattern/).
 
 
