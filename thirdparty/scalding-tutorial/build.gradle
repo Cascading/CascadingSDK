@@ -6,8 +6,8 @@
 
 fetchLatest {
   typePath = "thirdparty/source"
-  def version = "0.8.11"
-  distroURL = "https://github.com/Cascading/scalding-tutorial/archive/wip-2.5.zip"
+  def version = "0..11.2"
+  distroURL = "https://github.com/Cascading/scalding-tutorial/archive/wip-2.6.zip"
 }
 
 fetchLatest << {
