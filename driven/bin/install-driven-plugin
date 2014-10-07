@@ -3,7 +3,7 @@
 
 CASCADING_DIR=$HOME/.cascading
 
-INSTALLER_URL="http://eap.concurrentinc.com/driven/1.0/driven-plugin/install-driven-plugin.sh"
+INSTALLER_URL="http://eap.concurrentinc.com/driven/1.1/driven-plugin/install-driven-plugin.sh"
 
 if [ ! -d $CASCADING_DIR ]; then
     mkdir $CASCADING_DIR
