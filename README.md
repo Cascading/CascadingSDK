@@ -28,8 +28,10 @@ docs. It also contains a template project for creating a Cascading application.
 
 The `docs` subdirectory includes the Cascading User Guide, the Lingual User Guide, the source and docs of the tutorial
 series ["Cascading for the Impatient"](http://docs.cascading.org/impatient/), the [Lingual HBase
-tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) and the [Lingual Redshift
-tutorial](http://docs.cascading.org/tutorials/lingual-redshift/).
+tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) the [Cascading Redshift
+tutorial](http://docs.cascading.org/tutorials/cascading-redshift/), the [Cascading Teradata
+tutorial](http://docs.cascading.org/tutorials/cascading-teradata/) and a [Patter
+tutorial](docs.cascading.org/tutorials/pattern/).
 
 
 ## Driven
