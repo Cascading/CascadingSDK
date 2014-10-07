@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007-2013 Concurrent, Inc. All Rights Reserved.
+ * Copyright (c) 2007-2014 Concurrent, Inc. All Rights Reserved.
  *
  * Project and contact information: http://www.concurrentinc.com/
  */
@@ -23,7 +23,7 @@ if( System.properties[ 'aws.properties' ] )
   }
 }
 
-ext.majorVersion = 2.5
+ext.majorVersion = 2.6
 ext.applicationGroup = "sdk"
 ext.applicationName = "Cascading-${majorVersion}-SDK"
 ext.timestamp = new SimpleDateFormat( "yyyyMMdd" ).format( new Date() )

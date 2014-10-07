@@ -1,8 +1,8 @@
-# Cascading 2.5 SDK
+# Cascading 2.6 SDK
 
 This project contains the build scripts for creating the Cascading SDK release.
 
-The SDK distribution, available online, includes Cascading 2.5 and related projects in a single archive.
+The SDK distribution, available online, includes Cascading 2.6 and related projects in a single archive.
 
 Every project or extension included in this SDK has been tested independently before being downloaded and
 included in the package created by these build scripts.
@@ -124,12 +124,12 @@ The tools you will find are `multitool`, `load`, `compatibility` and
 To download a current copy of the Cascading SDK release, execute the following command:
 
 ```bash
- > wget -i http://files.cascading.org/sdk/2.5/latest.txt
+ > wget -i http://files.cascading.org/sdk/2.6/latest.txt
 ```
 
 ## Platform selection
 
-Cascading 2.5 supports 3 platforms: `local`, `hadoop`, and `hadoop2-mr1`. The easiest way to make all tools in the SDK
+Cascading 2.6 supports 3 platforms: `local`, `hadoop`, and `hadoop2-mr1`. The easiest way to make all tools in the SDK
 use the same platform is by creating a properties file in your home directory.
 
 ```bash
@@ -142,7 +142,7 @@ All tools support overwriting this platform selection via command line switches 
 
 To pre-install the SDK on a new instance of AWS EMR, use the following bootstrap action:
 
-    s3://files.cascading.org/sdk/2.5/install-cascading-sdk.sh
+    s3://files.cascading.org/sdk/2.6/install-cascading-sdk.sh
 
 This will download the latest SDK, unarchive it into the default user home directory, and add any tools
 to the PATH.
@@ -160,7 +160,7 @@ This bootstrap action has the following arguments:
 
 When using a bootstrap action with the EMR ruby client, remember to use commas instead of spaces between arguments:
 
-    --bootstrap-action s3://files.cascading.org/sdk/2.5/install-cascading-sdk.sh --args "--tmpdir,/tmp"
+    --bootstrap-action s3://files.cascading.org/sdk/2.6/install-cascading-sdk.sh --args "--tmpdir,/tmp"
 
 If you pass an API key for [Driven](http://cascading.io/driven) to the bootstrap action the driven plugin will
 automatically be installed on EMR. If you don't pass it, you can install the driven plugin later by running
