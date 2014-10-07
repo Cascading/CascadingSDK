@@ -34,3 +34,6 @@ include 'tutorials/lingual-redshift'
 include 'tutorials/lingual-oracle'
 
 include 'project-template'
+
+include 'libraries/cascading-jdbc-src'
+include 'libraries/cascading-hive-src'
