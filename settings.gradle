@@ -7,7 +7,7 @@
 include 'cascading'
 include 'cascading-src'
 
-include 'docs/userguide'
+include 'docs/cascading-userguide'
 
 include 'tools/multitool'
 include 'tools/load'
