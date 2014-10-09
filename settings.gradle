@@ -34,6 +34,7 @@ include 'tutorials/lingual-oracle'
 include 'tutorials/cascading-redshift'
 include 'tutorials/cascading-teradata'
 include 'tutorials/pattern'
+include 'tutorials/tutorials-src'
 
 include 'project-template'
 
