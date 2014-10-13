@@ -45,4 +45,5 @@ include 'example/project-template'
 
 include 'libraries/cascading-jdbc-src'
 include 'libraries/cascading-hive-src'
+include 'libraries/cascading-base-src'
 include 'libraries/cascading.memcached-src'
