@@ -5,7 +5,7 @@
  */
 
 fetchLatest {
-  typePath = "docs/tutorials/tutorials-src"
+  typePath = "docs/tutorials/"
   distroURL = "https://github.com/Cascading/tutorials/archive/master.zip"
 }
 
