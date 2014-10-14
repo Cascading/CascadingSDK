@@ -31,6 +31,7 @@ include 'thirdparty/cascalog-tutorial'
 
 include 'preview/pattern-src'
 include 'preview/pattern-tutorial'
+include 'preview/fluid-src'
 
 include 'docs/tutorials/lingual-hbase'
 include 'docs/tutorials/lingual-oracle'
