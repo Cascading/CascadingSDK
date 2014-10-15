@@ -6,8 +6,7 @@
 
 fetchLatest {
   typePath = "source"
-  def version = "wip-2.5"
-  distroURL ="https://github.com/Cascading/SampleRecommender/zipball/${version}"
+  distroURL ="https://github.com/Cascading/SampleRecommender/tarball/${rootProject.majorVersion}"
 }
 
 fetchLatest << {
