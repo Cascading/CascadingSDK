@@ -6,8 +6,7 @@
 
 fetchLatest {
   typePath = "source"
-  // TODO set this to the right thing
-  distroURL = "https://github.com/Cascading/cascading-hive/zipball/wip-1.0"
+  distroURL = "https://github.com/Cascading/cascading-hive/tarball/1.0"
 }
 
 fetchLatest << {
