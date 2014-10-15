@@ -40,7 +40,7 @@ include 'docs/tutorials/cascading-teradata'
 include 'docs/tutorials/etl-log'
 include 'docs/tutorials/cascading-copybook'
 include 'docs/tutorials/pattern'
-include 'docs/tutorials/tutorials-src'
+//include 'docs/tutorials/tutorials-src'
 
 include 'example/project-template'
 
