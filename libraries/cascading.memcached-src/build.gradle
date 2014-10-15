@@ -6,8 +6,7 @@
 
 fetchLatest {
   typePath = "source"
-  // TODO set this to the right thing
-  distroURL = "https://github.com/Cascading/cascading.memcached/tarball/wip-${rootProject.majorVersion}"
+  distroURL = "https://github.com/Cascading/cascading.memcached/tarball/${rootProject.majorVersion}"
 }
 
 fetchLatest << {
