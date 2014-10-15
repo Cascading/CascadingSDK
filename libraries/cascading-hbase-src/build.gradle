@@ -6,10 +6,9 @@
 
 fetchLatest {
   typePath = "source"
-  distroURL = "https://github.com/Cascading/cascading-hbase/tarball/wip-2.6"
+  distroURL = "https://github.com/Cascading/cascading-hbase/tarball/${rootProject.majorVersion}"
 }
 
 fetchLatest << {
-
   typeDir.listFiles()[ 0 ].renameTo( new File( typeDir, 'cascading-hbase-src' ) )
 }
