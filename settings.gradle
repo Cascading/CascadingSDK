@@ -42,9 +42,9 @@ include 'docs/tutorials/cascading-copybook'
 include 'docs/tutorials/pattern'
 include 'docs/tutorials/tutorials-src'
 
-include 'example/project-template'
+include 'examples/project-template'
 
 include 'libraries/cascading-jdbc-src'
 include 'libraries/cascading-hive-src'
-include 'libraries/cascading-base-src'
+include 'libraries/cascading-hbase-src'
 include 'libraries/cascading.memcached-src'

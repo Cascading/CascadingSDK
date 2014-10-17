@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "source"
-  distroURL = "https://github.com/Cascading/cascading-hbase/tarball/${rootProject.majorVersion}"
+  distroURL = "https://github.com/Cascading/cascading.hbase/tarball/${rootProject.majorVersion}"
 }
 
 fetchLatest << {
