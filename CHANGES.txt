@@ -1,0 +1,19 @@
+2.6
+
+  * updated multitool to 2.6.0
+  * updated load to 2.6.0
+  * updated to Lingual 1.2
+  * added cascading.memcached 2.6.0
+  * added cascading-hive 1.0.0
+  * updated SampleRecommender to 2.6
+  * added cascading-hbase 2.6 final release
+  * include cascading-jdbc 2.6 final release
+  * include fluid-src in preview directory
+  * added cascading-copybook and etl-log tutorials
+  * include the source of all tutorials in the SDK
+  * updated scalding tutorial to Cascading 2.6
+  * updated driven installer to 1.1-eap
+  * removed old redshift tutorial and included new one
+  * added cascading-teradata tutorial
+  * updated scalding to 0.11.2
+  * updated cascalog to 2.1.1
