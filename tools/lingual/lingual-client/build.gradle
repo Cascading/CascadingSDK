@@ -6,7 +6,7 @@
 
 fetchLatest {
   typePath = "tools"
-  latestURL = "http://files.concurrentinc.com/lingual/1.2/lingual-client/latest.txt"
+  latestURL = "http://${rootProject.sourceBucket}/lingual/1.2/lingual-client/latest.txt"
 
 }
 
