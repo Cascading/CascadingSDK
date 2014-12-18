@@ -10,7 +10,7 @@ set -e -x
 #  --driven-api-key - api key to use with driven
 #  --driven-host - url of the driven instance
 
-CASCADING_VERSION="2.5"
+CASCADING_VERSION="2.6"
 
 LATEST="http://@SOURCE_BUCKET@/sdk/$CASCADING_VERSION/latest.txt"
 
