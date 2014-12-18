@@ -1,0 +1,23 @@
+/*
+ * Copyright (c) 2007-2014 Concurrent, Inc. All Rights Reserved.
+ *
+ * Project and contact information: http://www.concurrentinc.com/
+ */
+import org.apache.tools.ant.filters.ReplaceTokens
+
+fetchLatest {
+  typePath = "docs/tutorials"
+  distroURL = "http://docs.cascading.org/tutorials/scalding-data-processing/scalding-data-processing.zip"
+}
+
+fetchLatest << {
+  new File( typeDir, 'scalding-data-processing' ).renameTo( new File( typeDir, 'scalding-data-processing-tutorial' ) )
+}
+
+distCopy {
+
+  from( distDir ) {
+    include '**/*.html'
+    include '**/*.log'
+  }
+}

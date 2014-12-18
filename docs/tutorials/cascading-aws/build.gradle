@@ -7,12 +7,12 @@ import org.apache.tools.ant.filters.ReplaceTokens
 
 fetchLatest {
   typePath = "docs/tutorials"
-  distroURL = "http://docs.cascading.org/tutorials/cascading-redshift/cascading-redshift.zip"
+  distroURL = "http://docs.cascading.org/tutorials/cascading-aws/cascading-aws.zip"
 }
 
 fetchLatest << {
 
-  new File( typeDir, 'cascading-redshift' ).renameTo( new File( typeDir, 'cascading-redshift-tutorial' ) )
+  new File( typeDir, 'cascading-aws' ).renameTo( new File( typeDir, 'cascading-aws-tutorial' ) )
 }
 
 distCopy {

@@ -28,9 +28,10 @@ docs. It also contains a template project for creating a Cascading application.
 
 The `docs` subdirectory includes the Cascading User Guide, the Lingual User Guide, the source and docs of the tutorial
 series ["Cascading for the Impatient"](http://docs.cascading.org/impatient/), the [Lingual HBase
-tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) the [Cascading Redshift
-tutorial](http://docs.cascading.org/tutorials/cascading-redshift/), the [Cascading Teradata
-tutorial](http://docs.cascading.org/tutorials/cascading-teradata/) and a [Pattern
+tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) the [Cascading AWS
+tutorial](http://docs.cascading.org/tutorials/cascading-aws/), the [Cascading Teradata
+tutorial](http://docs.cascading.org/tutorials/cascading-teradata/), the [Scalding Data
+Processing tutorial](http://docs.cascading.org/tutorials/scalding-data-processing), the [ETL with Cascading tutorial](http://docs.cascading.org/tutorials/etl-log) and a [Pattern
 tutorial](docs.cascading.org/tutorials/pattern/).
 
 
@@ -46,7 +47,7 @@ The `preview` subdirectory includes projects from the Cascading eco-system, that
 them for production code.
 
 Currently the `preview` directory contains the source code of [`pattern`](http://www.cascading.org/pattern/) in the
-`preview/pattern-src` directory, the [pattern turial](http://docs.cascading.org/tutorials/pattern/) in
+`preview/pattern-src` directory, the [pattern tutorial](http://docs.cascading.org/tutorials/pattern/) in
 `preview/pattern-tutorial` and the code of [fluid](http://github.com/cascading/fluid).
 
 ### Pattern
