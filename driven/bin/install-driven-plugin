@@ -1,5 +1,5 @@
 #/bin/bash
-# Copyright 2011-2014 Concurrent, Inc.
+# Copyright 2011-2015 Concurrent, Inc.
 
 CASCADING_DIR=$HOME/.cascading
 
