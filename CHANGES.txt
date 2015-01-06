@@ -1,3 +1,6 @@
+2.7 (unreleased)
+  * all tools and documentation based on Cascading 2.7
+
 2.6
 
   * updated multitool to 2.6.0

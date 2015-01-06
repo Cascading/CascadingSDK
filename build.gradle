@@ -23,7 +23,7 @@ if( System.properties[ 'aws.properties' ] )
   }
 }
 
-ext.majorVersion = 2.6
+ext.majorVersion = 2.7
 ext.applicationGroup = "sdk"
 ext.applicationName = "Cascading-${majorVersion}-SDK"
 ext.timestamp = new SimpleDateFormat( "yyyyMMdd" ).format( new Date() )
