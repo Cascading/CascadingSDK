@@ -1,5 +1,13 @@
 2.7 (unreleased)
-  * all tools and documentation based on Cascading 2.7
+  * updated multitool to 2.7
+  * updated load to 2.7
+  * updated cascading-jdbc to 2.7
+  * updated cascading-hbase to 2.7
+  * updated cascading-memcached to 2.7
+  * updated cascading-hive to 1.1
+  * updated Cascading to 2.7
+  * updated driven to 1.2
+  * updated scalding to 0.13.1
 
 2.6
 
