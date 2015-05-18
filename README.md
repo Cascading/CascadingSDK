@@ -47,8 +47,8 @@ The `preview` subdirectory includes projects from the Cascading eco-system, that
 them for production code.
 
 Currently the `preview` directory contains the source code of [`pattern`](http://www.cascading.org/pattern/) in the
-`preview/pattern-src` directory, the [pattern tutorial](http://docs.cascading.org/tutorials/pattern/) in
-`preview/pattern-tutorial` and the code of [fluid](http://github.com/cascading/fluid).
+`preview/pattern-src` directory and the [pattern tutorial](http://docs.cascading.org/tutorials/pattern/) in
+`preview/pattern-tutorial`. 
 
 ### Pattern
 
@@ -117,6 +117,14 @@ The tools you will find are `multitool`, `load`, `compatibility` and
 > Load provides a simple command line interface for building high load cluster
 > jobs, based on Cascading.
 
+## Libraries
+
+The `libraries` directory contains the code for popular Cascading extensions like
+[fluid](http://github.com/cascading/fluid), [cascading-jdbc](https://github.com/cascading/cascading-jdbc),
+[cascading-hbase](https://github.com/Cascading/cascading.hbase),
+[cascading-memcached](https://github.com/Cascading/cascading.memcached) and
+[cascading-hive](https://github.com/cascading/cascading-hive).
+
 ## Downloading the latest SDK release
 
 To download a current copy of the Cascading SDK release, execute the following command:
@@ -127,7 +135,7 @@ To download a current copy of the Cascading SDK release, execute the following c
 
 ## Platform selection
 
-Cascading 2.6 supports 3 platforms: `local`, `hadoop`, and `hadoop2-mr1`. The easiest way to make all tools in the SDK
+Cascading 2.7 supports 3 platforms: `local`, `hadoop`, and `hadoop2-mr1`. The easiest way to make all tools in the SDK
 use the same platform is by creating a properties file in your home directory.
 
 ```bash
