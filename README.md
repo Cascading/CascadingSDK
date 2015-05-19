@@ -31,8 +31,8 @@ series ["Cascading for the Impatient"](http://docs.cascading.org/impatient/), th
 tutorial](http://docs.cascading.org/tutorials/lingual-hbase/) the [Cascading AWS
 tutorial](http://docs.cascading.org/tutorials/cascading-aws/), the [Cascading Teradata
 tutorial](http://docs.cascading.org/tutorials/cascading-teradata/), the [Scalding Data
-Processing tutorial](http://docs.cascading.org/tutorials/scalding-data-processing), the [ETL with Cascading tutorial](http://docs.cascading.org/tutorials/etl-log) and a [Pattern
-tutorial](docs.cascading.org/tutorials/pattern/).
+Processing tutorial](http://docs.cascading.org/tutorials/scalding-data-processing), the [ETL with Cascading tutorial](http://docs.cascading.org/tutorials/etl-log) a [Pattern
+tutorial](docs.cascading.org/tutorials/pattern/) and [Integrating Cascading with Map Reduce APIs](http://docs.cascading.org/tutorials/cascading-mr/).
 
 
 ## Driven
